@@ -1,0 +1,18 @@
+# depslib dependency file v1.0
+1634730864 source:/home/alumnos/marvin/DW/pract_2/practica_2/main.cpp
+	<iostream>
+	"mmind_basic.h"
+	"mmind.h"
+
+1634730785 /home/alumnos/marvin/DW/pract_2/practica_2/mmind_basic.h
+
+1634729867 source:/home/alumnos/marvin/DW/pract_2/practica_2/mmind.cpp
+	"mmind.h"
+	<iostream>
+
+1634561111 /home/alumnos/marvin/DW/pract_2/practica_2/mmind.h
+
+1634731255 source:/home/alumnos/marvin/DW/pract_2/practica_2/mmind_basic.cpp
+	"mmind_basic.h"
+	<iostream>
+

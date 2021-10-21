@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1633522645 source:/home/alumnos/marvin/DW/ej_1.6.2/ej_1.6.2/main.cpp
+	<iostream>
+	"primes.h"
+
+1633522696 /home/alumnos/marvin/DW/ej_1.6.2/ej_1.6.2/primes.h
+
