@@ -1,0 +1,14 @@
+# depslib dependency file v1.0
+1633967301 source:/home/marvin/Desktop/university/DSW/prt1/main.cpp
+	<iostream>
+	"tdttt.h"
+	"tdtt.h"
+
+1633967021 /home/marvin/Desktop/university/DSW/prt1/tdttt.h
+
+1633967293 source:/home/marvin/Desktop/university/DSW/prt1/tdttt.cpp
+	"tdttt.h"
+	<iostream>
+
+1633967294 /home/marvin/Desktop/university/DSW/prt1/tdtt.h
+
