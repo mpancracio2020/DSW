@@ -16,3 +16,23 @@
 	"mmind_basic.h"
 	<iostream>
 
+1635361857 source:/home/marvin/Desktop/university/DSW/DSW/pract_2/practica_2/mmind.cpp
+	"mmind.h"
+	<iostream>
+	<string>
+
+1635361951 /home/marvin/Desktop/university/DSW/DSW/pract_2/practica_2/mmind.h
+	<iostream>
+	<vector>
+
+1635351317 source:/home/marvin/Desktop/university/DSW/DSW/pract_2/practica_2/mmind_basic.cpp
+	"mmind_basic.h"
+	<iostream>
+
+1635350758 /home/marvin/Desktop/university/DSW/DSW/pract_2/practica_2/mmind_basic.h
+
+1635361876 source:/home/marvin/Desktop/university/DSW/DSW/pract_2/practica_2/main.cpp
+	<iostream>
+	"mmind_basic.h"
+	"mmind.h"
+

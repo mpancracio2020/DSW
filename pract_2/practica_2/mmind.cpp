@@ -4,14 +4,13 @@
 
 #include "mmind.h"
 #include <iostream>
-#include <vector>
+#include <string>
 using namespace std;
 
-
-int get_level()
+string get_level()
 {
-    int level;
-
+    string level;
+    string level_value;
     bool sentinel = true;
 
     while (sentinel)
@@ -20,14 +19,45 @@ int get_level()
         cout << "Enter the level you want to play: "<< endl;
         cin >> level;
 
-        if (level > 0 && level <= 3)
+        if ((level == "básico")| ( level == "basico"))
         {
             sentinel = false;
+            level = "básico";
+
+
+        }
+        else if ((level == "clásico") | (level == "clasico"))
+        {
+            sentinel = false;
+            level = "clásico";
+
+        }
+        else if ((level == "difícil") | (level == "dificil"))
+        {
+            sentinel = false;
+            level= "difícil";
 
         }
     }
-
+    cout<<"You choose: "<<level<<" level."<< endl;
     return level;
+}
+int get_intento()
+{
+    int intento;
+    cout<<"Enter your try: "<<endl;
+    cin>>intento;
+    return intento;
+}
+int get_length(string level)
+{
+    int length;
+
+    if(level == "básico") length = 3;
+    else if(level =="clásico") length = 4;
+    else if(level =="difícil") length = 5;
+
+    return length;
 }
 
 bool get_repeted_num()
@@ -63,27 +93,39 @@ void get_array_value(unsigned int arr[])
         cout <<"Pos "<<i<<": "<<arr[i]<<endl;
 
     }
-
 }
 
 
-vector<int> rellenar_num_secreto(unsigned const int l)
+void rellenar_num_secreto(unsigned int numSecretoArray[],unsigned const int l)
 {
+    //int n_secreto = 1+rand()%l;
 
-    int num_secreto[l];
+    int n = l-1; //indice máximo de la array.
 
-    for (int i = 0; i<l; i++)
-    {
-        int n = 1+rand()%l;
-        num_secreto[i] = n;
-
-        cout <<"Num secret: "<<n<< endl;
-
-    }
-
-    return num_secreto;
-
-
+        for (int i = n; i >=0; i--)
+        {
+            numSecretoArray[i] = 1+rand()%l;
+        }
 
 }
+int get_interval(string level)
+{
+    int interval;
+
+    if(level == "básico") interval = 4;
+    else if(level =="clásico") interval = 6;
+    else if(level =="difícil") interval = 8;
+}
+
+void array_to_string(unsigned int arr[],int n)
+{
+    string array_string;
+    for(int i = 0; i < n; i++)
+    {
+        array_string += to_string(arr[i]);
+        //cout<< "Array position"<< i <<": "<<numSecreto[i]<<endl; //traza para comprobar si la array se rellena bien.
+    }
+    cout << "Numero que contiene la array: " << array_string<<endl;
+}
+
 
