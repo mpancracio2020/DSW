@@ -5,6 +5,8 @@
 #include "mmind.h"
 #include <iostream>
 #include <string>
+#include <ctime>
+#include <cstdlib>
 using namespace std;
 
 string get_level()
@@ -96,16 +98,20 @@ void get_array_value(unsigned int arr[])
 }
 
 
-void rellenar_num_secreto(unsigned int numSecretoArray[],unsigned const int l)
+void rellenar_num_secreto(unsigned int numSecretoArray[],unsigned  int l,unsigned const elem)
 {
-    //int n_secreto = 1+rand()%l;
 
-    int n = l-1; //indice máximo de la array.
 
-        for (int i = n; i >=0; i--)
-        {
-            numSecretoArray[i] = 1+rand()%l;
-        }
+    srand(time(NULL));
+
+    for(int i = 0; i < elem;i++)
+    {
+
+        int s_num = rand()% (l+1) +1;
+
+        numSecretoArray[i] = rand()% (l+1) +1;
+
+    }
 
 }
 int get_interval(string level)
@@ -115,6 +121,8 @@ int get_interval(string level)
     if(level == "básico") interval = 4;
     else if(level =="clásico") interval = 6;
     else if(level =="difícil") interval = 8;
+
+    return interval;
 }
 
 void array_to_string(unsigned int arr[],int n)

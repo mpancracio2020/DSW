@@ -8,9 +8,8 @@ string get_level();
 int get_intento();
 int get_length(string level);
 int get_interval(string level);
-void rellenar_num_secreto(unsigned int numSecretoArray[],unsigned const int l);
+void rellenar_num_secreto(unsigned int numSecretoArray[],unsigned const int l,unsigned const elem);
 void array_to_string(unsigned int arr[],int n);
-
 bool get_repeted_num();
 void get_array_value(unsigned int arr[]);
 //void heart();

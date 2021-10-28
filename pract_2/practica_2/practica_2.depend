@@ -36,3 +36,23 @@
 	"mmind_basic.h"
 	"mmind.h"
 
+1635414605 source:/home/alumnos/marvin/DW/DSW/pract_2/practica_2/main.cpp
+	<iostream>
+	"mmind_basic.h"
+	"mmind.h"
+
+1634730785 /home/alumnos/marvin/DW/DSW/pract_2/practica_2/mmind_basic.h
+
+1635413061 /home/alumnos/marvin/DW/DSW/pract_2/practica_2/mmind.h
+	<iostream>
+	<vector>
+
+1635414689 source:/home/alumnos/marvin/DW/DSW/pract_2/practica_2/mmind.cpp
+	"mmind.h"
+	<iostream>
+	<string>
+
+1635412562 source:/home/alumnos/marvin/DW/DSW/pract_2/practica_2/mmind_basic.cpp
+	"mmind_basic.h"
+	<iostream>
+

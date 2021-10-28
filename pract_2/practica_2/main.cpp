@@ -8,16 +8,20 @@ int main()
 {
     string level = get_level();
 
-    const int num_elem = get_length(level);
-    //cout<<"Your try lenght must be : "<<num_elem<<endl;
+    int num_elem = get_length(level);
+    cout<<"Your try lenght must be : "<<num_elem<<endl;
+
+    cout<<"Your level: "<<level<<endl;
+
+    int interval = get_interval(level);
+    cout<<"Your interval: "<<interval<<endl;
 
     int intento = get_intento();
-    //cout<<"Your try: "<<intento<<endl;
 
     unsigned int intentoDigitos[num_elem];
 
     unsigned int numSecreto[num_elem];
-    rellenar_num_secreto(numSecreto,num_elem);
+    rellenar_num_secreto(numSecreto,interval,num_elem);
     array_to_string(numSecreto,num_elem);
 
     rellenarIntento(intento,intentoDigitos, num_elem);
