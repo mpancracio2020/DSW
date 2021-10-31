@@ -53,6 +53,7 @@ unsigned int calcularAciertos(const unsigned int numSecreto[],
         if(numSecreto[i] == intentoDigitos[i]) n_aciertos++;
     }
     cout<<"Número de aciertos: "<<n_aciertos<<endl;
+    return n_aciertos;
 
 }
 

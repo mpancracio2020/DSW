@@ -7,32 +7,22 @@ using namespace std;
 int main()
 {
     string level = get_level();
+    string election_user = get_election();
 
     int num_elem = get_length(level);
-    cout<<"Your try lenght must be : "<<num_elem<<endl;
 
-    cout<<"Your level: "<<level<<endl;
 
     int interval = get_interval(level);
-    cout<<"Your interval: "<<interval<<endl;
+
 
     int intento = get_intento();
 
     unsigned int intentoDigitos[num_elem];
 
     unsigned int numSecreto[num_elem];
-    rellenar_num_secreto(numSecreto,interval,num_elem);
-    array_to_string(numSecreto,num_elem);
-
-    rellenarIntento(intento,intentoDigitos, num_elem);
-    array_to_string(intentoDigitos,num_elem);
-
-    calcularAciertos(numSecreto,intentoDigitos,num_elem);
-    calcularSemiaciertos(numSecreto,intentoDigitos,num_elem);
-    comprobarDigitosRepetidos(intentoDigitos,num_elem);
 
 
+    intentos(level,numSecreto,intentoDigitos,num_elem,intento,interval,election_user);
 
-    //heart();
     return 0;
 }
