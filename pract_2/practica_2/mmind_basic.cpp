@@ -11,9 +11,9 @@ bool comprobarDigitosRepetidos(const unsigned int numero[], const int num_elem)
 {
     bool repeted = false; //en cuanto el bucle anidado de abajo detecte algún nº repetido el valor de repeted cambiará
                           //y se sabrá que hay valores repetidos.
-    int i = 0;
+    //int i = 0;
 
-    while (!repeted)
+    /*while (!repeted)
     {
         int k = numero[i];
         for(int j = (i+1); j <(num_elem);j++)
@@ -21,12 +21,30 @@ bool comprobarDigitosRepetidos(const unsigned int numero[], const int num_elem)
             if(k == numero[j])
             {
                 repeted = true;
-                cout<<"Numeros repetidos en: "<< i <<" pos y en: "<<j<<endl;
+                //cout<<"Numeros repetidos en: "<< i <<" pos y en: "<<j<<endl;
             }
         }
-        i++;
-    }
-    cout<<"repeted value: "<< repeted<< endl;
+
+
+
+        i++;*/
+
+
+        for(int i = 0;i < num_elem;i++)
+        {
+            for(int j = (i+1); j <num_elem;j++)
+            {
+                if(repeted == false)
+                {
+                    if(numero[i] == numero[j])
+                    {
+                        repeted = true;
+                        //cout<<"Numeros repetidos en: "<< i <<" pos y en: "<<j<<endl;
+                    }
+                }
+
+            }
+        }
     return repeted;
 
 }

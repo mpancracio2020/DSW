@@ -1,6 +1,7 @@
 #ifndef MMIND_BASIC_H_INCLUDED
 #define MMIND_BASIC_H_INCLUDED
-
+#include "mmind.h"
+#include "mmind_basic.h"
 
 /* Función comprobarDigitosRepetidos():
 Devuelve true si 'numero[]' contiene algún dígito repetido, False en caso contrario.

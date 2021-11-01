@@ -85,7 +85,6 @@ bool get_repeted_num()
 
     return repeted;
 
-
 }
 
 void get_array_value(unsigned int arr[])
@@ -99,33 +98,33 @@ void get_array_value(unsigned int arr[])
     }
 }
 
-
 void rellenar_num_secreto(unsigned int numSecretoArray[],unsigned  int l,unsigned const elem,string election)
 {
-
+    //es semejante a la función de rellenarIntento con la diferencia de digitos repetidos o no.
     if(election == "n")
     {
-        bool repeted = false;
-        while (!repeted)
+        bool repeted = true;
+        int sent = 1; // index
+
+        while (repeted)
         {
             srand(time(NULL));
             for(int i = 0; i < elem;i++)
             {
                 numSecretoArray[i] = rand()% (l) +1;
             }
-            repeted = comprobarDigitosRepetidos(numSecretoArray,elem);
+            repeted = comprobarDigitosRepetidos(numSecretoArray,elem); //utilizamos esta funcion para comprobar
+            //si hay números repetidos, este bucle no acabará hasta que el valor de repeted sea false, lo que
+            // equivale a que no tenga números repetidos.
         }
     }
-    else
+    else if (election == "y")
     {
-
         srand(time(NULL));
 
         for(int i = 0; i < elem;i++)
         {
-
             numSecretoArray[i] = rand()% (l) +1;
-
         }
     }
 
@@ -205,10 +204,9 @@ void intentos(string nivel, unsigned int numSecreto[], unsigned int intentoDigit
             rellenarIntento(intento,intentoDigitos, num_elem);
             array_to_string(numSecreto,num_elem);
             array_to_string(intentoDigitos,num_elem);
-            calcularAciertos(numSecreto,intentoDigitos,num_elem);
+            int n_aciertos = calcularAciertos(numSecreto,intentoDigitos,num_elem);
             calcularSemiaciertos(numSecreto,intentoDigitos,num_elem);
             //comprobarDigitosRepetidos(intentoDigitos,num_elem);
-            int n_aciertos = calcularAciertos(numSecreto,intentoDigitos,num_elem);
             if(n_aciertos == 3)
             {
                 i = 5;
@@ -229,10 +227,10 @@ void intentos(string nivel, unsigned int numSecreto[], unsigned int intentoDigit
             rellenarIntento(intento,intentoDigitos, num_elem);
             array_to_string(numSecreto,num_elem);
             array_to_string(intentoDigitos,num_elem);
-            calcularAciertos(numSecreto,intentoDigitos,num_elem);
+            int n_aciertos = calcularAciertos(numSecreto,intentoDigitos,num_elem);
             calcularSemiaciertos(numSecreto,intentoDigitos,num_elem);
             //comprobarDigitosRepetidos(intentoDigitos,num_elem);
-            int n_aciertos = calcularAciertos(numSecreto,intentoDigitos,num_elem);
+
             if(n_aciertos == 4)
             {
                 i = 8;
@@ -255,17 +253,14 @@ void intentos(string nivel, unsigned int numSecreto[], unsigned int intentoDigit
             rellenarIntento(intento,intentoDigitos, num_elem);
             array_to_string(numSecreto,num_elem);
             array_to_string(intentoDigitos,num_elem);
-            calcularAciertos(numSecreto,intentoDigitos,num_elem);
+            int n_aciertos = calcularAciertos(numSecreto,intentoDigitos,num_elem);
             calcularSemiaciertos(numSecreto,intentoDigitos,num_elem);
             //comprobarDigitosRepetidos(intentoDigitos,num_elem);
-            int n_aciertos = calcularAciertos(numSecreto,intentoDigitos,num_elem);
             if(n_aciertos == 5)
             {
                 i = 10;
                 cout<<"You win!!! "<<endl;
             }
         }
-
     }
-
 }
