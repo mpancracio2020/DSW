@@ -15,31 +15,27 @@ string get_level()
     string level;
     string level_value;
     bool sentinel = true;
-
     while (sentinel)
     {
-
         cout << "Enter the level you want to play: "<< endl;
         cin >> level;
+        //Hemos sido flexibles y le damos al jugador varias opciones "correctas" de que introduzca el nivel,
+        //en función de su gramática.
 
-        if ((level == "básico")| ( level == "basico"))
+        if ((level == "básico")| ( level == "basico")| ( level == "Basico")| ( level == "Básico"))
         {
             sentinel = false;
             level = "básico";
-
-
         }
-        else if ((level == "clásico") | (level == "clasico"))
+        else if ((level == "clásico") | (level == "clasico")| ( level == "Clasico")| ( level == "Clásico"))
         {
             sentinel = false;
             level = "clásico";
-
         }
-        else if ((level == "difícil") | (level == "dificil"))
+        else if ((level == "difícil") | (level == "dificil")| ( level == "Dificil")| ( level == "Difícil"))
         {
             sentinel = false;
             level= "difícil";
-
         }
     }
     cout<<"You choose: "<<level<<" level."<< endl;
@@ -64,48 +60,13 @@ int get_length(string level)
     return length;
 }
 
-bool get_repeted_num()
-{
-    bool repeted = true;
-
-    string answer = "";
-
-    cout<< "Do you want repeted numbers?: "<< endl;
-
-    cin>> answer;
-
-    if (answer == "yes")
-    {
-        cout << "You choose repeted numbers "<< endl;
-        return repeted;
-
-    }
-    cout << "You choose no repeted numbers "<< endl;
-    repeted = false;
-
-    return repeted;
-
-}
-
-void get_array_value(unsigned int arr[])
-{
-    int arrSize = sizeof(arr)/sizeof(arr[0]);
-
-    for(int i = 0; i <= arrSize; i++)
-    {
-        cout <<"Pos "<<i<<": "<<arr[i]<<endl;
-
-    }
-}
-
 void rellenar_num_secreto(unsigned int numSecretoArray[],unsigned  int l,unsigned const elem,string election)
 {
     //es semejante a la función de rellenarIntento con la diferencia de digitos repetidos o no.
-    if(election == "n")
+    if((election == "n")|(election == "N"))
     {
         bool repeted = true;
         int sent = 1; // index
-
         while (repeted)
         {
             srand(time(NULL));
@@ -118,16 +79,14 @@ void rellenar_num_secreto(unsigned int numSecretoArray[],unsigned  int l,unsigne
             // equivale a que no tenga números repetidos.
         }
     }
-    else if (election == "y")
+    else if ((election == "y")|(election == "Y"))
     {
         srand(time(NULL));
-
         for(int i = 0; i < elem;i++)
         {
             numSecretoArray[i] = rand()% (l) +1;
         }
     }
-
 }
 int get_interval(string level)
 {
@@ -149,7 +108,7 @@ void array_to_string(unsigned int arr[],int n)
         array_string += to_string(arr[i]);
         //cout<< "Array position"<< i <<": "<<numSecreto[i]<<endl; //traza para comprobar si la array se rellena bien.
     }
-    cout << "Numero que contiene la array: " << array_string<<endl;
+    cout <<array_string<<endl;
 }
 string get_election()
 {
@@ -158,109 +117,40 @@ string get_election()
     cin>>chose;
     return chose;
 }
-
-void comprobarDigitosRepetidos_Secretos(const unsigned int numero[], const int num_elem,string chose)
+void play(string nivel, unsigned int numSecreto[], unsigned int intentoDigitos[],const int num_elem,unsigned int intento,int interval,string election_user)
 {
-    bool repeted = false; //en cuanto el bucle anidado de abajo detecte algún nº repetido el valor de repeted cambiará
-                          //y se sabrá que hay valores repetidos.
-    int i = 0;
+    int num_max;
+    int attempts;
+    int aciertos;
 
-    while (!repeted)
-    {
-        int k = numero[i];
-        for(int j = (i+1); j <(num_elem);j++)
-        {
-            if(k == numero[j])
-            {
-                repeted = true;
-                cout<<"Numeros repetidos en: "<< i <<" pos y en: "<<j<<endl;
-            }
-        }
-        i++;
-    }
-    cout<<"repeted value: "<< repeted<< endl;
-
-}
-void intentos(string nivel, unsigned int numSecreto[], unsigned int intentoDigitos[],const int num_elem,unsigned int intento,int interval,string election_user)
-{
-
-    //array_to_string(numSecreto,num_elem);
     rellenar_num_secreto(numSecreto,interval,num_elem,election_user);
     rellenarIntento(intento,intentoDigitos, num_elem);
-    array_to_string(numSecreto,num_elem);
-    array_to_string(intentoDigitos,num_elem);
     int n_aciertos = calcularAciertos(numSecreto,intentoDigitos,num_elem);
     calcularSemiaciertos(numSecreto,intentoDigitos,num_elem);
 
-    if(nivel == "básico")
+    if(nivel == "básico"){num_max = 6;attempts = 5;aciertos = 3;}
+    else if(nivel == "clásico"){num_max = 8;attempts = 7;aciertos = 4;}
+    else if(nivel == "difícil"){num_max = 10;attempts = 9;aciertos = 5;}
+
+    for(int i = 0; i < num_max;i++)
     {
-
-        for(int i = 0; i < 6;i++)
+        cout<<"You have "<< attempts-i<<" more attempts"<<endl;
+        int intento = get_intento();
+        rellenarIntento(intento,intentoDigitos, num_elem);
+        int n_aciertos = calcularAciertos(numSecreto,intentoDigitos,num_elem);
+        calcularSemiaciertos(numSecreto,intentoDigitos,num_elem);
+        if(n_aciertos == aciertos)
         {
-            cout<<"You have "<< 5-i<<" more attempts"<<endl;
-
-            int intento = get_intento();
-
-            rellenarIntento(intento,intentoDigitos, num_elem);
-            array_to_string(numSecreto,num_elem);
-            array_to_string(intentoDigitos,num_elem);
-            int n_aciertos = calcularAciertos(numSecreto,intentoDigitos,num_elem);
-            calcularSemiaciertos(numSecreto,intentoDigitos,num_elem);
-            //comprobarDigitosRepetidos(intentoDigitos,num_elem);
-            if(n_aciertos == 3)
-            {
-                i = 5;
-                cout<<"You win!!! "<<endl;
-            }
+            i = num_max;
+            cout<<"You win!!! "<<endl;
         }
-
-    }
-
-    else if(nivel == "clásico")
-    {
-        for(int i = 0; i < 8;i++)
-        {
-            cout<<"You have "<< 7-i<<" more attempts"<<endl;
-
-            int intento = get_intento();
-
-            rellenarIntento(intento,intentoDigitos, num_elem);
-            array_to_string(numSecreto,num_elem);
-            array_to_string(intentoDigitos,num_elem);
-            int n_aciertos = calcularAciertos(numSecreto,intentoDigitos,num_elem);
-            calcularSemiaciertos(numSecreto,intentoDigitos,num_elem);
-            //comprobarDigitosRepetidos(intentoDigitos,num_elem);
-
-            if(n_aciertos == 4)
-            {
-                i = 8;
-                cout<<"You win!!! "<<endl;
-            }
-
-        }
-
-    }
-
-    else if(nivel == "difícil")
-
-    {
-        for(int i = 0; i < 10;i++)
-        {
-            cout<<"You have "<< 9-i<<" more attempts"<<endl;
-
-            int intento = get_intento();
-
-            rellenarIntento(intento,intentoDigitos, num_elem);
-            array_to_string(numSecreto,num_elem);
-            array_to_string(intentoDigitos,num_elem);
-            int n_aciertos = calcularAciertos(numSecreto,intentoDigitos,num_elem);
-            calcularSemiaciertos(numSecreto,intentoDigitos,num_elem);
-            //comprobarDigitosRepetidos(intentoDigitos,num_elem);
-            if(n_aciertos == 5)
-            {
-                i = 10;
-                cout<<"You win!!! "<<endl;
-            }
-        }
+        else if ((n_aciertos != aciertos) & ((i+1) == num_max)) {loser(numSecreto,num_elem);}
     }
 }
+void loser(unsigned int numSecreto[],const int num_elem)
+{
+    cout<< "The number was: ";
+    array_to_string(numSecreto,num_elem);
+    cout<<"Try again!"<<endl;
+}
+

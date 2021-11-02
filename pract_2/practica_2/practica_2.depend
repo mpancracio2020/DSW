@@ -16,7 +16,7 @@
 	"mmind_basic.h"
 	<iostream>
 
-1635798358 source:/home/marvin/Desktop/university/DSW/DSW/pract_2/practica_2/mmind.cpp
+1635873489 source:/home/marvin/Desktop/university/DSW/DSW/pract_2/practica_2/mmind.cpp
 	"mmind.h"
 	"mmind_basic.h"
 	<iostream>
@@ -24,7 +24,7 @@
 	<ctime>
 	<cstdlib>
 
-1635672732 /home/marvin/Desktop/university/DSW/DSW/pract_2/practica_2/mmind.h
+1635874038 /home/marvin/Desktop/university/DSW/DSW/pract_2/practica_2/mmind.h
 	<iostream>
 
 1635798417 source:/home/marvin/Desktop/university/DSW/DSW/pract_2/practica_2/mmind_basic.cpp
@@ -35,7 +35,7 @@
 	"mmind.h"
 	"mmind_basic.h"
 
-1635713193 source:/home/marvin/Desktop/university/DSW/DSW/pract_2/practica_2/main.cpp
+1635871579 source:/home/marvin/Desktop/university/DSW/DSW/pract_2/practica_2/main.cpp
 	<iostream>
 	"mmind_basic.h"
 	"mmind.h"

@@ -19,9 +19,8 @@ int main()
     unsigned int intentoDigitos[num_elem]; // creamos las arrays que contendrán los intentos del jugador y el número secreto, respectivamente.
     unsigned int numSecreto[num_elem];
 
-
-    intentos(level,numSecreto,intentoDigitos,num_elem,intento,interval,election_user);
-    //dentro de esta función se ejecutarán el número de "intentos" que tenga el jugador dependiendo del nivel.
+    play(level,numSecreto,intentoDigitos,num_elem,intento,interval,election_user);
+    //Dentro de esta función se ejecutarán el número de "intentos" que tenga el jugador dependiendo del nivel.
     //Por cada intento se compararán los aciertos y semiaciertos de cada intento.
 
 
