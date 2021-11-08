@@ -6,9 +6,39 @@
 
 using namespace std;
 
+const unsigned int MAX_CARTAS = 52;
+
+tBaraja* inicializarBaraja()
+{
+    tBaraja* baraja = new tBaraja;
+    (*baraja).numero = 0;
+    for (int i = 1;i < 4;i++)
+    {
+        for (int j = 0; j < 52;j++)
+        {
+            (*baraja).numero++;
+            (*baraja).carta[(*baraja).numero].palo = i;
+
+            (*baraja).carta[(*baraja).numero].valor = j;
+        }
+    }
+    return baraja;
+}
+
+void mostrarBaraja(tBaraja* baraja,int valor, int palo)
+{
+    //Método para mostrar una carta de la baraja.
+
+    tCarta carta = (*baraja).carta[VALORES*palo + valor];
+
+    mostrarCarta(carta);
+
+}
+
 void mostrarCarta(tCarta carta)
 {
     string palo = mostrarPalo(carta);
+
     cout<< "Tu carta es el: "<<carta.valor<< " de "<<palo<<endl;
 }
 
@@ -39,40 +69,23 @@ void repartirCarta(tCarta &carta)
     cout<<"Valor num: "<<carta.valor<<endl;
 }
 
-void setCarta(int listaCartas[4][52],int listV[],tCarta carta)
+void setCarta(tBaraja baraja,tCarta carta)
 {
     //Primero comprobamos que la carta no está repartida ya, si aún está sin repartir, entonces la usamos y la guardamos en la array,
-    //dejando así constancia de que ya está en uso
+    //dejando así constancia de que ya está en uso.
 
-    bool get = getCarta(listaCartas,carta);
-    if(get == false)
-    {
 
-    listaCartas[carta.palo][carta.valor] = carta.valor;
-    cout<<"Carta repartida y guardada."<<endl;
-    }
-
-    else
-    {
-        cout<< "Ya está repartida."<<endl;
-    }
 }
 
-bool getCarta(int listaCartas[4][52],tCarta carta)
+/*bool getCarta(tBaraja baraja,tCarta carta)
 {
-    // El método es simple. Tenemos una array 4x52, o lo que es igual PaloxValor. Es decir, el 4 de corazones se aloja en la fila 2 columna 4, con valor 4 (valor). Des esta forma
-    // ,podemos saber si un valor de un palo ha sido tomado con tan solo un condicional.
-
+    //En este método comprobamos si la carta ya está repartida (true) o aún sigue en la baraja (false).
     bool get = false;
-    int palo = carta.palo;
-    int valor = carta.valor;
 
-    if(listaCartas[palo][valor] == valor)
+    if(carta.valor == bajara.carta[carta.valor].valor)
     {
-    //mostrarCarta(carta);
-    //cout<<"ya existe." << endl;
-    get = true;
+        get = true;
     }
 
     return get;
-}
+}*/

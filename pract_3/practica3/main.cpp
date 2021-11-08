@@ -6,20 +6,27 @@ using namespace std;
 
 int main()
 {
-    tCarta cartaRandom;
+    /*tCarta cartaRandom;
 
     int lista[4][52];
     int k = 0;
-    //lista[2][5] = 5;
+    lista[2][5] = 5;
 
     tCarta carta;
     carta.valor = 5;
     carta.palo = 2;
 
-    getCarta(lista,carta);
+    setCarta(lista,carta);
 
     /*repartirCarta(cartaRandom);
     mostrarCarta(cartaRandom);
     mostrarPalo(cartaRandom);*/
+
+    tBaraja* baraja = inicializarBaraja();
+    tCarta c = (*baraja).carta[45];
+
+ //   mostrarCarta(c);
+    mostrarBaraja(baraja,3,10);
+
     return 0;
 }
