@@ -12,44 +12,49 @@ tBaraja* inicializarBaraja()
 {
     tBaraja* baraja = new tBaraja;
     (*baraja).numero = 0;
-    for (int i = 1;i < 4;i++)
+    for (int i = 1;i < 5;i++)
     {
-        for (int j = 0; j < 52;j++)
+        for (int j = 1; j < 13;j++)
         {
             (*baraja).numero++;
             (*baraja).carta[(*baraja).numero].palo = i;
 
             (*baraja).carta[(*baraja).numero].valor = j;
+            //cout<< "palo: "<<(*baraja).carta[(*baraja).numero].palo;
+            //cout << " valor:" << (*baraja).carta[(*baraja).numero].valor<<endl;
         }
     }
     return baraja;
 }
 
-void mostrarBaraja(tBaraja* baraja,int valor, int palo)
+void mostrarBaraja(tBaraja &baraja)
 {
-    //Método para mostrar una carta de la baraja.
-
-    tCarta carta = (*baraja).carta[VALORES*palo + valor];
-
-    mostrarCarta(carta);
-
+    int numero = 0;
+    for (int i = 1;i < 5;i++)
+    {
+        for (int j = 1; j < 13;j++)
+        {
+            numero++;
+            cout<< "palo: "<<baraja.carta[baraja.numero].palo;
+            cout << " valor:" << baraja.carta[baraja.numero].valor<<endl;
+        }
+    }
+}
+int getPalo(int pos)
+{
+    int a = 0;
+    return a;
 }
 
-void mostrarCarta(tCarta carta)
-{
-    string palo = mostrarPalo(carta);
-
-    cout<< "Tu carta es el: "<<carta.valor<< " de "<<palo<<endl;
-}
-
-string mostrarPalo(tCarta carta)
+string mostrarPalo(int indice)
 {
     string palo;
+    int pos_palo = indice%10;
 
-    if(carta.palo == 1) palo = "Espadas";
-    else if(carta.palo == 2) palo = "Corazones";
-    else if(carta.palo == 3) palo = "Diamantes";
-    else if(carta.palo == 4) palo = "Tréboles";
+    if(pos_palo== 1) palo = "Espadas";
+    else if(pos_palo == 2) palo = "Corazones";
+    else if(pos_palo == 3) palo = "Diamantes";
+    else if(pos_palo == 4) palo = "Tréboles";
 
     return palo;
 }
@@ -73,19 +78,11 @@ void setCarta(tBaraja baraja,tCarta carta)
 {
     //Primero comprobamos que la carta no está repartida ya, si aún está sin repartir, entonces la usamos y la guardamos en la array,
     //dejando así constancia de que ya está en uso.
+}
+void sacarCarta()
+{
+
 
 
 }
 
-/*bool getCarta(tBaraja baraja,tCarta carta)
-{
-    //En este método comprobamos si la carta ya está repartida (true) o aún sigue en la baraja (false).
-    bool get = false;
-
-    if(carta.valor == bajara.carta[carta.valor].valor)
-    {
-        get = true;
-    }
-
-    return get;
-}*/

@@ -21,12 +21,11 @@ int main()
     /*repartirCarta(cartaRandom);
     mostrarCarta(cartaRandom);
     mostrarPalo(cartaRandom);*/
+    tBaraja baraja;
 
-    tBaraja* baraja = inicializarBaraja();
-    tCarta c = (*baraja).carta[45];
+    tBaraja* baraja_puntero = inicializarBaraja();
+    mostrarBaraja(baraja);
 
- //   mostrarCarta(c);
-    mostrarBaraja(baraja,3,10);
 
     return 0;
 }
