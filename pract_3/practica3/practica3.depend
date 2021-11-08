@@ -1,8 +1,9 @@
 # depslib dependency file v1.0
-1635946284 source:/home/alumnos/marvin/DW/DSW/pract_3/practica3/p_structs.cpp
+1636376059 source:/home/alumnos/marvin/DW/DSW/pract_3/practica3/p_structs.cpp
 	"poker_structs.h"
 	"p_structs.h"
 	<iostream>
+	<array>
 
 1635942536 /home/alumnos/marvin/DW/DSW/pract_3/practica3/poker_structs.h
 
@@ -10,12 +11,12 @@
 	"poker_structs.h"
 	<iostream>
 
-1635946584 source:/home/alumnos/marvin/DW/DSW/pract_3/practica3/main.cpp
+1636377326 source:/home/alumnos/marvin/DW/DSW/pract_3/practica3/main.cpp
 	<iostream>
 	"poker_structs.h"
 	"p_structs.h"
 
-1635946664 /home/alumnos/marvin/DW/DSW/pract_3/practica3/p_structs.h
+1636376383 /home/alumnos/marvin/DW/DSW/pract_3/practica3/p_structs.h
 	"poker_structs.h"
 	<iostream>
 
