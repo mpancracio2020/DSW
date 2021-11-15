@@ -22,9 +22,16 @@ int main()
     mostrarCarta(cartaRandom);
     mostrarPalo(cartaRandom);*/
     tBaraja baraja;
+    inicializarBaraja(baraja);
+    //mostrarBaraja(baraja);
 
-    tBaraja* baraja_puntero = inicializarBaraja();
-    mostrarBaraja(baraja);
+    tCarta carta;
+    sacarCarta(baraja,carta);
+    mostrarCarta(carta);
+    //repartirCarta(carta)
+
+
+    //mostrarBaraja(baraja);
 
 
     return 0;

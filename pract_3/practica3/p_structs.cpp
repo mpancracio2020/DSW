@@ -8,7 +8,7 @@ using namespace std;
 
 const unsigned int MAX_CARTAS = 52;
 
-tBaraja* inicializarBaraja()
+/*tBaraja* inicializarBaraja()
 {
     tBaraja* baraja = new tBaraja;
     (*baraja).numero = 0;
@@ -25,21 +25,35 @@ tBaraja* inicializarBaraja()
         }
     }
     return baraja;
-}
-
-void mostrarBaraja(tBaraja &baraja)
-{
-    int numero = 0;
+}*/
+void inicializarBaraja(tBaraja& baraja)
+{   //Función para inicializar los valores de una baraja.
+    baraja.numero = 0;
     for (int i = 1;i < 5;i++)
     {
-        for (int j = 1; j < 13;j++)
+        for (int j = 1; j < 14;j++)
         {
-            numero++;
-            cout<< "palo: "<<baraja.carta[baraja.numero].palo;
-            cout << " valor:" << baraja.carta[baraja.numero].valor<<endl;
+            baraja.carta[baraja.numero].palo = i;
+            baraja.carta[baraja.numero].valor = j;
+            baraja.numero++;
+        }
+    }
+
+}
+void mostrarBaraja(tBaraja& baraja)
+{   //Función para mostrar las cartas que contiene la baraja.
+    int index = 0;
+    for (int i = 1;i < 5;i++)
+    {
+        for (int j = 1; j < 14;j++)
+        {
+            cout<< "palo: "<<baraja.carta[index].palo<<endl;
+            cout << " valor:" << baraja.carta[index].valor<<endl;
+            index++;
         }
     }
 }
+
 int getPalo(int pos)
 {
     int a = 0;
@@ -64,25 +78,38 @@ void mostrarMenu()
     cout<<"Palos: "<<endl<<"1 equivale a Espadas."<<endl<<"2 equivale a Corazones."<<endl;
     cout<<"3 equivale a Diamantes."<<endl<<"4 equivale a Tréboles."<<endl;
 }
-void repartirCarta(tCarta &carta)
+void repartirCarta(tCarta& carta, tBaraja& baraja,tMano& mano)
 {
-    srand(time(NULL));
-
-    carta.valor = rand()% (13) +1;
-    carta.palo = rand()% (4) +1;
-    cout<<"Palo num: "<<carta.palo<<endl;
-    cout<<"Valor num: "<<carta.valor<<endl;
+    mano.numero = 0;
+    for(int i = 0; i < 5;i++)
+    {
+        //mano.carta[i] = sacarCarta(baraja,carta);
+        mano.numero++;
+    }
 }
 
-void setCarta(tBaraja baraja,tCarta carta)
-{
-    //Primero comprobamos que la carta no está repartida ya, si aún está sin repartir, entonces la usamos y la guardamos en la array,
-    //dejando así constancia de que ya está en uso.
+void sacarCarta(tBaraja& baraja,tCarta& carta)
+{   // Función para sacar una carta al azar de la baraja y retirarla de la misma.
+    // Para marcar que una carta ha sido retirada marcaremos su palo como 0, de esta forma
+    // miraremos si el valor numérico del palo es menor que 1, en tal caso, la carta ya estará repartida
+    bool repartida = true;
+    int numCarta;
+    while (repartida)
+    {
+        srand(time(NULL));
+        numCarta = rand()% (52) +0;
+        if(baraja.carta[numCarta].palo != 0) repartida = false;
+    }
+
+    carta.palo = baraja.carta[numCarta].palo;
+    carta.valor = baraja.carta[numCarta].valor;
+    baraja.carta[numCarta].palo = 0;
 }
-void sacarCarta()
+
+void mostrarCarta(tCarta& carta)
 {
 
-
+    cout<<"Palo: "<<carta.palo<<endl;
+    cout<<"Valor: "<<carta.valor<<endl;
 
 }
-
