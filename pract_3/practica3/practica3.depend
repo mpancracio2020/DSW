@@ -20,18 +20,18 @@
 	"poker_structs.h"
 	<iostream>
 
-1636398098 source:/home/marvin/Desktop/university/DSW/DSW/pract_3/practica3/main.cpp
+1637008155 source:/home/marvin/Desktop/university/DSW/DSW/pract_3/practica3/main.cpp
 	<iostream>
 	"poker_structs.h"
 	"p_structs.h"
 
 1636387634 /home/marvin/Desktop/university/DSW/DSW/pract_3/practica3/poker_structs.h
 
-1636398250 /home/marvin/Desktop/university/DSW/DSW/pract_3/practica3/p_structs.h
+1637010044 /home/marvin/Desktop/university/DSW/DSW/pract_3/practica3/p_structs.h
 	"poker_structs.h"
 	<iostream>
 
-1636396557 source:/home/marvin/Desktop/university/DSW/DSW/pract_3/practica3/p_structs.cpp
+1637008089 source:/home/marvin/Desktop/university/DSW/DSW/pract_3/practica3/p_structs.cpp
 	"poker_structs.h"
 	"p_structs.h"
 	<iostream>

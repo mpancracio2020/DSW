@@ -25,9 +25,15 @@ int main()
     inicializarBaraja(baraja);
     //mostrarBaraja(baraja);
 
-    tCarta carta;
-    sacarCarta(baraja,carta);
-    mostrarCarta(carta);
+    //tCarta carta;
+    //sacarCarta(baraja,carta);
+    //mostrarCarta(carta);
+
+    tMano mano;//nueva mano del jugador 1
+
+    repartirMano(baraja,mano);
+
+    //mostrarCarta(mano.carta[1]);
     //repartirCarta(carta)
 
 

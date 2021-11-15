@@ -78,14 +78,21 @@ void mostrarMenu()
     cout<<"Palos: "<<endl<<"1 equivale a Espadas."<<endl<<"2 equivale a Corazones."<<endl;
     cout<<"3 equivale a Diamantes."<<endl<<"4 equivale a Tréboles."<<endl;
 }
-void repartirCarta(tCarta& carta, tBaraja& baraja,tMano& mano)
-{
-    mano.numero = 0;
-    for(int i = 0; i < 5;i++)
+void repartirMano(tBaraja& baraja,tMano& mano)
+{   //Función para repartir una mano de cartas a cada jugador, teniendo en cuenta las cartas ya dadas.
+
+    mano.numero = 0; //Inicializamos el atributo número del objeto carta, el cuál irá aumentando
+    //a la vez que el número de cartas introducidas en la mano.
+
+    for(int i = 0; i < 6;i++)
     {
-        //mano.carta[i] = sacarCarta(baraja,carta);
+        sacarCarta(baraja,mano.carta[i]);
+        //cout<<"Carta número: "<< i <<endl;
+        //cout<<"palo de la mano: "<< mano.carta[i].palo <<endl;
+        //cout<<"valor de la mano: "<< mano.carta[i].valor <<endl;
         mano.numero++;
     }
+    ordenarMano(mano);
 }
 
 void sacarCarta(tBaraja& baraja,tCarta& carta)
@@ -100,7 +107,6 @@ void sacarCarta(tBaraja& baraja,tCarta& carta)
         numCarta = rand()% (52) +0;
         if(baraja.carta[numCarta].palo != 0) repartida = false;
     }
-
     carta.palo = baraja.carta[numCarta].palo;
     carta.valor = baraja.carta[numCarta].valor;
     baraja.carta[numCarta].palo = 0;
@@ -108,8 +114,58 @@ void sacarCarta(tBaraja& baraja,tCarta& carta)
 
 void mostrarCarta(tCarta& carta)
 {
-
     cout<<"Palo: "<<carta.palo<<endl;
     cout<<"Valor: "<<carta.valor<<endl;
-
 }
+
+void ordenarMano(tMano& mano)
+{
+    tCarta carta_aux; // carta auxiliar para poder mover las cartas de posición (método de la burbuja).
+    for(int i = 0; i < 6;i++)
+    {
+        for(int j = 1; j < 5; j++)
+        {
+            if(mano.carta[i].valor < mano.carta[j].valor)
+            {   //Fácil, si el valor de carta[i] es menor que el de cart[j] se intercambian las posiciones.
+                carta_aux = mano.carta[i];
+                mano.carta[i] = mano.carta[j];
+                mano.carta[j] = carta_aux;
+            }
+        }
+    }
+    mostrarMano(mano);
+}
+void mostrarMano(tMano& mano)
+{
+    for(int i = 0; i < 6; i++)
+    {
+        cout<<"Carta número: "<< i <<endl;
+        cout<<"palo de la mano: "<< mano.carta[i].palo <<endl;
+        cout<<"valor de la mano: "<< mano.carta[i].valor <<endl;
+        cout<< endl;
+    }
+}
+void comprobarEscaleraReal(tMano& mano);
+void comprobarEscaleraColor(tMano& mano);
+void comprobarPoker(tMano& mano);
+void comprobarFull(tMano& mano);
+void comprobarColor(tMano& mano);
+void comprobarEscalera(tMano& mano);
+void comprobarTrio(tMano& mano);
+void comprobarDoblePareja(tMano& mano);
+void comprobarPareja(tMano& mano);
+void comprobarCartaAlta(tMano& mano);
+void calcularPuntosMano(tMano& mano)
+{
+    /*comprobarEscaleraReal(mano);
+    comprobarEscaleraColor(mano);
+    comprobarPoker(mano);
+    comprobarFull(mano);
+    comprobarColor(mano);
+    comprobarEscalera(mano);
+    comprobarTrio(mano);
+    comprobarDoblePareja(mano);
+    comprobarPareja(mano);
+    comprobarCartaAlta(mano);*/
+}
+
