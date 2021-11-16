@@ -21,8 +21,11 @@ int main()
     /*repartirCarta(cartaRandom);
     mostrarCarta(cartaRandom);
     mostrarPalo(cartaRandom);*/
+
     tBaraja baraja;
     inicializarBaraja(baraja);
+
+
     //mostrarBaraja(baraja);
 
     //tCarta carta;
@@ -37,19 +40,21 @@ int main()
     mano.carta[1].valor = 10;
     mano.carta[1].palo = 1;
 
-    mano.carta[2].valor = 11;
+    mano.carta[2].valor = 5;
     mano.carta[2].palo = 2;
 
-    mano.carta[3].valor = 12;
-    mano.carta[3].palo = 3;
+    mano.carta[3].valor = 5;
+    mano.carta[3].palo = 1;
 
-    mano.carta[4].valor = 13;
-    mano.carta[4].palo = 4;
+    mano.carta[4].valor = 12;
+    mano.carta[4].palo = 1;
+
+    //ordenarMano(mano);
 
     int jugar = 1;
     while(jugar == 1)
     {
-        //mostrarMano(mano);
+        ordenarMano(mano);
         //repartirMano(baraja,mano);
         calcularPuntosMano(mano);
         cout<<"Quieres seguir jugando??(1/0)";
