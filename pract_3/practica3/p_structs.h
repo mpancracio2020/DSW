@@ -15,6 +15,7 @@ void ordenarMano(tMano& mano);//Función para ordenar las cartas de una mano, de
 void calcularPuntosMano(tMano& mano);// Función para calcular los puntos de una mano.
 void mostrarMano(tMano& mano);//Función que simplemente muestra las cartas que contiene una mano.
 
+bool comprobarMismoPalo(tMano& mano);
 
 void comprobarEscaleraReal(tMano& mano);
 void comprobarEscaleraColor(tMano& mano);

@@ -84,7 +84,7 @@ void repartirMano(tBaraja& baraja,tMano& mano)
     mano.numero = 0; //Inicializamos el atributo número del objeto carta, el cuál irá aumentando
     //a la vez que el número de cartas introducidas en la mano.
 
-    for(int i = 0; i < 6;i++)
+    for(int i = 0; i < 5;i++)
     {
         sacarCarta(baraja,mano.carta[i]);
         //cout<<"Carta número: "<< i <<endl;
@@ -137,7 +137,7 @@ void ordenarMano(tMano& mano)
 }
 void mostrarMano(tMano& mano)
 {
-    for(int i = 0; i < 6; i++)
+    for(int i = 0; i < 5; i++)
     {
         cout<<"Carta número: "<< i <<endl;
         cout<<"palo de la mano: "<< mano.carta[i].palo <<endl;
@@ -145,24 +145,138 @@ void mostrarMano(tMano& mano)
         cout<< endl;
     }
 }
-void comprobarEscaleraReal(tMano& mano);
-void comprobarEscaleraColor(tMano& mano);
-void comprobarPoker(tMano& mano);
-void comprobarFull(tMano& mano);
+
+bool comprobarMismoPalo(tMano& mano)
+{
+    bool mismo_palo = true; // Variable para comprobar que son del mismo palo.
+    int indice = 0;
+
+    for(int j = 1; j < 5; j++)
+    {
+        if(mano.carta[indice].palo != mano.carta[j].palo) mismo_palo = false;
+    }
+    return mismo_palo;
+}
+void comprobarEscaleraReal(tMano& mano)
+{
+    int valor_escalera = 13;
+    int valor_min = 9;
+
+    bool mismo_palo = comprobarMismoPalo(mano);
+
+    if(mismo_palo == true)
+    {
+        for(int i = 4; i > 0; i--)
+        {
+            if(mano.carta[i].valor == valor_escalera) valor_escalera--;
+            //cout<<"valor_escalera: "<<valor_escalera<<endl;
+        }
+    }
+    if((valor_escalera == valor_min) && (mano.carta[0].valor == 1 ))
+    {
+        mano.puntos = 10; cout<<"Tienes Escalera Real :)"<<endl;
+    }
+    else
+    {
+        cout<<"No tienes Escalera Real :("<<endl;
+    }
+}
+void comprobarEscaleraColor(tMano& mano)
+{
+    bool mismo_palo = comprobarMismoPalo(mano);
+    bool escalera_color = true;
+
+    if(mismo_palo == true)
+    {
+        for(int i = 0; i < 4; i++)
+        {
+            if(mano.carta[i].valor > mano.carta[i+1].valor) escalera_color = false;
+            //cout<<"valor_escalera: "<<valor_escalera<<endl;
+        }
+
+        if(escalera_color = true)
+        {
+            mano.puntos = 9; cout << "Tienes Escalera de color :)"<<endl;
+        }
+
+        else
+        {
+            cout << "No tienes Escalera de color :("<<endl;
+        }
+    }
+
+}
+void comprobarPoker(tMano& mano)
+{
+    bool poker = true;
+    int contador_poker = 0;
+    int VALOR_Q = 12;
+    for(int i = 0; i < 5; i++)
+    {
+        if(mano.carta[i].valor != VALOR_Q) contador_poker++;
+        //cout<<"valor_escalera: "<<valor_escalera<<endl;
+    }
+    if(contador_poker != 4)
+    {
+        poker = false; cout<< "Tienes poker de locos"<<endl;
+        mano.puntos = 8;
+    }
+
+    else
+    {
+        cout<< "No tienes poker de locos"<<endl;
+    }
+
+}
+void comprobarFull(tMano& mano)
+{
+
+
+}
 void comprobarColor(tMano& mano);
-void comprobarEscalera(tMano& mano);
-void comprobarTrio(tMano& mano);
+void comprobarEscalera(tMano& mano)
+{
+    bool escalera = true;
+
+    for(int i = 0; i < 4; i++)
+    {
+        if(mano.carta[i].valor > mano.carta[i+1].valor) escalera = false;
+        //cout<<"valor_escalera: "<<valor_escalera<<endl;
+    }
+
+    if(escalera = true)
+    {
+        mano.puntos = 5; cout << "Tienes Escalera :)"<<endl;
+    }
+
+    else
+    {
+        cout << "No tienes Escalera :("<<endl;
+    }
+
+
+
+}
+void comprobarTrio(tMano& mano)
+{
+
+
+
+}
+
 void comprobarDoblePareja(tMano& mano);
 void comprobarPareja(tMano& mano);
 void comprobarCartaAlta(tMano& mano);
 void calcularPuntosMano(tMano& mano)
 {
-    /*comprobarEscaleraReal(mano);
+    comprobarEscaleraReal(mano);
     comprobarEscaleraColor(mano);
     comprobarPoker(mano);
-    comprobarFull(mano);
-    comprobarColor(mano);
     comprobarEscalera(mano);
+
+    /*comprobarFull(mano);
+    comprobarColor(mano);
+
     comprobarTrio(mano);
     comprobarDoblePareja(mano);
     comprobarPareja(mano);
