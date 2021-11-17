@@ -25,7 +25,7 @@ void comprobarColor(tMano& mano);
 void comprobarEscalera(tMano& mano);
 void comprobarTrio(tMano& mano);
 void comprobarDoblePareja(tMano& mano);
-void comprobarPareja(tMano& mano);
+void comprobarParejaYDoblePareja(tMano& mano);// Función para comprobar que tenemos una o dos parejas en cada mano.
 void comprobarCartaAlta(tMano& mano);
 
 
