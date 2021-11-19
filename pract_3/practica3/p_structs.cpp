@@ -5,7 +5,6 @@
 #include <array>
 
 using namespace std;
-
 const unsigned int MAX_CARTAS = 52;
 void inicializarBaraja(tBaraja& baraja)
 {   //Función para inicializar los valores de una baraja.
@@ -68,12 +67,12 @@ void repartirMano(tBaraja& baraja,tMano& mano)
     for(int i = 0; i < 5;i++)
     {
         sacarCarta(baraja,mano.carta[i]);
-        //cout<<"Carta número: "<< i <<endl;
+        //cout<<"Carta número: "<< i<<endl;
         //cout<<"palo de la mano: "<< mano.carta[i].palo <<endl;
         //cout<<"valor de la mano: "<< mano.carta[i].valor <<endl;
         mano.numero++;
     }
-    ordenarMano(mano);
+    //ordenarMano(mano);
 }
 
 void sacarCarta(tBaraja& baraja,tCarta& carta)
@@ -102,7 +101,7 @@ void mostrarCarta(tCarta& carta)
 void ordenarMano(tMano& mano)
 {
     tCarta carta_aux; // carta auxiliar para poder mover las cartas de posición (método de la burbuja).
-    for(int i = 1; i < 5;i++)
+    for(int i = 1; i < 6 ;i++)
     {
         for(int j = 0; j < 4; j++)
         {
@@ -114,16 +113,17 @@ void ordenarMano(tMano& mano)
             }
         }
     }
-    mostrarMano(mano);
+    //mostrarMano(mano);
 }
 void mostrarMano(tMano& mano)
 {
     for(int i = 0; i < 5; i++)
     {
-        cout<<"Carta número: "<< i <<endl;
-        cout<<"palo de la mano: "<< mano.carta[i].palo <<endl;
-        cout<<"valor de la mano: "<< mano.carta[i].valor <<endl;
-        cout<< endl;
+        cout<<"______________"<<endl;
+        cout<<"|Carta número: "<< i+1 <<"|"<<endl;
+        cout<<"|palo: "<< mano.carta[i].palo <<"|"<<endl;
+        cout<<"|valor: "<< mano.carta[i].valor <<"|"<<endl;
+        cout<<"|_____________|"<<endl;
     }
 }
 
@@ -132,7 +132,7 @@ bool comprobarMismoPalo(tMano& mano)
     bool mismo_palo = true; // Variable para comprobar que son del mismo palo.
     int indice = 0;
 
-    for(int j = 1; j < 5; j++)
+    for(int j = 1; j < 6; j++)
     {
         if(mano.carta[indice].palo != mano.carta[j].palo) mismo_palo = false;
     }
@@ -142,12 +142,11 @@ void comprobarEscaleraReal(tMano& mano)
 {
     int valor_escalera = 13;
     int valor_min = 9;
-
     bool mismo_palo = comprobarMismoPalo(mano);
 
     if(mismo_palo == true)
     {
-        for(int i = 4; i > 0; i--)
+        for(int i = 5; i > 0; i--)
         {
             if(mano.carta[i].valor == valor_escalera) valor_escalera--;
             //cout<<"valor_escalera: "<<valor_escalera<<endl;
@@ -159,7 +158,7 @@ void comprobarEscaleraReal(tMano& mano)
     }
     else
     {
-        cout<<"No tienes Escalera Real :("<<endl;
+        //cout<<"No tienes Escalera Real :("<<endl;
     }
 }
 void comprobarEscaleraColor(tMano& mano)
@@ -169,12 +168,11 @@ void comprobarEscaleraColor(tMano& mano)
 
     if(mismo_palo == true)
     {
-        for(int i = 0; i < 4; i++)
+        for(int i = 0; i < 5; i++)
         {
-            if(mano.carta[i].valor > mano.carta[i+1].valor) escalera_color = false;
+            if((mano.carta[i].valor > mano.carta[i+1].valor)&((mano.carta[i+1].valor - mano.carta[i].valor) == 1)) escalera_color = false;
             //cout<<"valor_escalera: "<<valor_escalera<<endl;
         }
-
         if(escalera_color = true)
         {
             mano.puntos = 9; cout << "Tienes Escalera de color :)"<<endl;
@@ -182,7 +180,7 @@ void comprobarEscaleraColor(tMano& mano)
 
         else
         {
-            cout << "No tienes Escalera de color :("<<endl;
+            //cout << "No tienes Escalera de color :("<<endl;
         }
     }
 
@@ -192,7 +190,7 @@ void comprobarPoker(tMano& mano)
     bool poker = true;
     int contador_poker = 0;
     int VALOR_Q = 12;
-    for(int i = 0; i < 4; i++)
+    for(int i = 0; i < 5; i++)
     {
        if(mano.carta[i].valor == mano.carta[i+1].valor) contador_poker++;
     }
@@ -204,7 +202,7 @@ void comprobarPoker(tMano& mano)
 
     else
     {
-        cout<< "No tienes poker de locos"<<endl;
+        //cout<< "No tienes poker de locos"<<endl;
     }
 
 }
@@ -212,21 +210,19 @@ void comprobarFull(tMano& mano)
 {
     comprobarTrio(mano);
     int contador_full = 0;
-    cout<<"mano.puntos: "<<mano.puntos<<endl;
     if(mano.puntos == 4)
     {
-        comprobarParejaYDoblePareja(mano);
-        if(mano.puntos == 2)
-        {
-            cout<<"Tienes full."<<endl;
-            mano.puntos = 7;
-        }
+        comprobarPareja(mano);
+    }
+    if(mano.puntos == 2)
+    {
+        cout<<"Tienes Full!"<<endl;
+        mano.puntos = 7;
     }
 }
 void comprobarColor(tMano& mano)
 {
     bool color = comprobarMismoPalo(mano);
-
     if(color == true)
     {
         cout<<"Tienes color :)"<<endl;
@@ -234,7 +230,7 @@ void comprobarColor(tMano& mano)
     }
     else
     {
-        cout<<"No tienes color :("<<endl;
+        //cout<<"No tienes color :("<<endl;
 
     }
 }
@@ -251,84 +247,170 @@ void comprobarEscalera(tMano& mano)
     }
     else
     {
-        cout << "No tienes Escalera :("<<endl;
+        //cout << "No tienes Escalera :("<<endl;
     }
 }
 void comprobarTrio(tMano& mano)
 {
     int contador_trio = 0;
-    for(int i = 0; i < 4; i++)
+    if(mano.puntos == 0)
     {
-        if(mano.carta[i].valor == mano.carta[i+1].valor) contador_trio++;
-        cout << "contador_trio: "<<contador_trio<<endl;
+       for(int i = 0; i < 5; i++)
+       {
+            if((mano.carta[i].valor == mano.carta[i+1].valor)&(((mano.carta[i+1].valor) - (mano.carta[i].valor)) == 0)) contador_trio++;
+            else if(contador_trio == 2)
+            {
+                mano.puntos = 4; cout << "Tienes Trio :)"<<endl;
+            }
+        }
+        if(contador_trio == 0)
+        {
+            //cout << "No tienes Trio :("<<endl;
+        }
     }
-    if(contador_trio == 3)
-    {
-        mano.puntos = 4;
-        cout << "Tienes Trio :)"<<endl;
-    }
-    else
-    {
-        cout << "No tienes Trio :("<<endl;
-    }
+
 }
-void comprobarParejaYDoblePareja(tMano& mano)
+void comprobarPareja(tMano& mano)
 {
     int contador_pareja = 0;
-    int valores[13];
-    for (int i = 0; i< 13;i++)
+    if(mano.puntos == 0) // Puede darse el caso de que tengamos trío en lugar de pareja, para evitar errores de calculo de puntuación
+                         // antes de comprobar que tengamos pareja veamos si ya tenemos trío, en esa situación tener una pareja
+                         // con los mismos números es posible, pero de nada sirve calcularlo, pues trío > pareja.
     {
-        valores[i] = 0;
-    }
-    for(int i = 0; i < 5; i++)
-    {
-        valores[mano.carta[i].valor]++;
-    }
-    for(int i = 0; i < 13; i++)
-    { // En este bucle comprobamos cuantas parejas tenemos en la array.
-        if(valores[i] == 2){contador_pareja++;}
-        //cout<<"posición: "<<i<<" Array valor:  "<<valores[i]<<endl;
-        if(valores[i] == 4){contador_pareja = 2;}
-    }
-    // En el caso de que haya solo 1 pareja contador_pareja valdrá 1,si tenemos doble pareja valdrá 2 y si no hay ninguna pues 0.
-    //cout << "contador_pareja: "<< contador_pareja<<endl;
-    if(contador_pareja == 1)
-    {
-        mano.puntos = 2;
-        cout << "Tienes pareja (de cartas)"<<endl;
-    }
-    if(contador_pareja == 2)
-    {
-        mano.puntos = 3;
-        cout << "Tienes doble pareja (de cartas)"<<endl;
+        for(int i = 0; i < 5; i++)
+        {
+            if((mano.carta[i].valor == mano.carta[i+1].valor)&((mano.carta[i+1].valor - mano.carta[i].valor) == 0)) contador_pareja++;
+        }
+        if(contador_pareja == 1)
+        {
+            mano.puntos = 2;
+            cout << "Tienes Pareja :)"<<endl;
+        }
+        else if(contador_pareja == 2)
+        {
+            cout << "Tienes Doble Pareja :)"<<endl;
+            mano.puntos = 3;
+        }
     }
     else
-    {cout << "No tienes pareja ni doble pareja (de cartas)"<<endl;}
+    {
+        //cout << "No tienes Pareja :("<<endl;
+    }
 }
 void comprobarCartaAlta(tMano& mano)
 {
     bool mismo_palo = comprobarMismoPalo(mano);
-    cout<<"mano.punto: "<< mano.puntos<<endl;
-    if(mismo_palo == false & mano.puntos == 0)
+    //cout<<"mano.punto: "<< mano.puntos<<endl;
+    if(mano.puntos == 0)
     {
-        cout<<"Has perdido :)"<<endl;
+        cout<<"Carta alta :)"<<endl;
         mano.puntos =1;
     }
+    //cout<<"mano.punto: "<< mano.puntos<<endl;
+
 }
 void calcularPuntosMano(tMano& mano)
 {
-    mano.puntos = 0;
     comprobarEscaleraReal(mano);
     comprobarEscaleraColor(mano);
     comprobarPoker(mano);
     comprobarFull(mano);
+    comprobarColor(mano);
     comprobarEscalera(mano);
     comprobarTrio(mano);
-    comprobarColor(mano);
-    comprobarParejaYDoblePareja(mano);
-
-
-
+    comprobarPareja(mano);
     comprobarCartaAlta(mano);
+}
+void anadirMano(tJuego& juego,int num_jug)
+{
+    /*tBaraja baraja;
+    inicializarBaraja(baraja);
+    tMano* mano1 = new tMano;
+    for(int i = 0; i < juego.numero;i++)
+    {
+        tMano mano;
+        repartirMano(baraja,mano);
+        ordenarMano(mano);
+        juego.mano[i] = (tMano*) mano;
+    }*/
+
+    tMano* manoJ = new tMano;
+    juego.mano[num_jug] = manoJ;
+    juego.numero++;
+}
+void inicializarManos(tMano manos[])
+{
+    tMano mano;
+    for(int i = 0; i < 4; i++)
+    {
+        manos[i] = mano;
+    }
+}
+int pedirJugadores()
+{
+    int n;
+    cout<<"Cuantos jugadores serán"<<endl;
+    return n;
+}
+void jugar(tMano manos[],int num_jug,int election)
+{
+    if(num_jug == 2)
+    {
+        while(election == 1)
+        {
+            juegan2(manos,num_jug,election);
+        }
+}
+}
+void juegan2(tMano manos[],int num_jug,int election)
+{
+    while(election == 1)
+    {
+        tBaraja baraja;
+        inicializarBaraja(baraja);
+
+        tMano mano_jug_1 ;
+        tMano mano_jug_2 ;
+
+        repartirMano(baraja,mano_jug_1);
+        ordenarMano(mano_jug_1);
+        mostrarMano(mano_jug_1);
+        calcularPuntosMano(mano_jug_1);
+
+        repartirMano(baraja,mano_jug_2);
+        ordenarMano(mano_jug_2);
+        mostrarMano(mano_jug_2);
+        calcularPuntosMano(mano_jug_2);
+
+        comprobarGanador(mano_jug_1,mano_jug_2,num_jug);
+
+        cout<<"Quieres seguir jugando??(1/0)";
+        cin>>election;
+    }
+}
+void comprobarGanador(tMano mano1,tMano mano2,int num_jug)
+{
+
+    if(num_jug == 2)
+    {
+        if(mano1.puntos < mano2.puntos)
+        {
+            cout<<"\nGana el jugador 2!!!"<<endl;
+            cout<<"Con la siguienteb mano: "<<endl;cout<<"_______________________"<<endl;
+            mostrarMano(mano2);
+
+        }
+        else if(mano1.puntos > mano2.puntos)
+        {
+            //cout<<endl;
+            cout<<"\nGana el jugador 1!!!!"<<endl;
+            cout<<"Con la siguienteb mano: "<<endl;cout<<"_______________________"<<endl;
+            mostrarMano(mano1);
+        }
+        else
+        {
+            cout<<"\nEmpate!!!"<<endl;
+        }
+    }
 }
 

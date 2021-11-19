@@ -25,8 +25,14 @@ void comprobarColor(tMano& mano);
 void comprobarEscalera(tMano& mano);
 void comprobarTrio(tMano& mano);
 void comprobarDoblePareja(tMano& mano);
-void comprobarParejaYDoblePareja(tMano& mano);// Función para comprobar que tenemos una o dos parejas en cada mano.
+void comprobarPareja(tMano& mano);
 void comprobarCartaAlta(tMano& mano);
-
+void encontrarManoGanadora();
+void jugar(tMano manos[],int num_jug,int election);
+int pedirJugadores();
+void anadirMano(tJuego& juego,int num_jug);
+void juegan2(tMano manos[],int num_jug,int election);//Función que se realiza cuando juegan 2 personas.
+//void añadirMano(int num_jugadores,tJuego juego);
+void comprobarGanador(tMano manos1,tMano manos2,int num_jug);
 
 #endif // P_STRUCTS_H_INCLUDED
