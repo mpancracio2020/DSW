@@ -34,12 +34,6 @@ void mostrarBaraja(tBaraja& baraja)
     }
 }
 
-int getPalo(int pos)
-{
-    int a = 0;
-    return a;
-}
-
 string mostrarPalo(int indice)
 {
     string palo;
@@ -228,11 +222,6 @@ void comprobarColor(tMano& mano)
         cout<<"Tienes color :)"<<endl;
         mano.puntos = 6;
     }
-    else
-    {
-        //cout<<"No tienes color :("<<endl;
-
-    }
 }
 void comprobarEscalera(tMano& mano)
 {
@@ -255,17 +244,18 @@ void comprobarTrio(tMano& mano)
     int contador_trio = 0;
     if(mano.puntos == 0)
     {
-       for(int i = 0; i < 5; i++)
+       for(int i = 0; i < 3; i++)
        {
-            if((mano.carta[i].valor == mano.carta[i+1].valor)&(((mano.carta[i+1].valor) - (mano.carta[i].valor)) == 0)) contador_trio++;
-            else if(contador_trio == 2)
-            {
-                mano.puntos = 4; cout << "Tienes Trio :)"<<endl;
-            }
+            int a = mano.carta[i].valor;
+            int b = mano.carta[i+1].valor;
+            int c = mano.carta[i+2].valor;
+            if((a == b)& (a == c) & ( b - a == 0)) contador_trio++;
+
         }
-        if(contador_trio == 0)
+        if(contador_trio == 1)
         {
-            //cout << "No tienes Trio :("<<endl;
+            mano.puntos = 4;
+            cout << "Tienes Trio :)"<<endl;
         }
     }
 
@@ -300,17 +290,14 @@ void comprobarPareja(tMano& mano)
 void comprobarCartaAlta(tMano& mano)
 {
     bool mismo_palo = comprobarMismoPalo(mano);
-    //cout<<"mano.punto: "<< mano.puntos<<endl;
     if(mano.puntos == 0)
     {
         cout<<"Carta alta :)"<<endl;
         mano.puntos =1;
     }
-    //cout<<"mano.punto: "<< mano.puntos<<endl;
-
 }
 void calcularPuntosMano(tMano& mano)
-{
+{// LLamamos a todas las comprobaciones, en orden. De mayor puntuación a menor, asi ahorramos comprobar un Trío cuando ya tenemos un Full.
     comprobarEscaleraReal(mano);
     comprobarEscaleraColor(mano);
     comprobarPoker(mano);
@@ -321,25 +308,8 @@ void calcularPuntosMano(tMano& mano)
     comprobarPareja(mano);
     comprobarCartaAlta(mano);
 }
-void anadirMano(tJuego& juego,int num_jug)
-{
-    /*tBaraja baraja;
-    inicializarBaraja(baraja);
-    tMano* mano1 = new tMano;
-    for(int i = 0; i < juego.numero;i++)
-    {
-        tMano mano;
-        repartirMano(baraja,mano);
-        ordenarMano(mano);
-        juego.mano[i] = (tMano*) mano;
-    }*/
-
-    tMano* manoJ = new tMano;
-    juego.mano[num_jug] = manoJ;
-    juego.numero++;
-}
 void inicializarManos(tMano manos[])
-{
+{// Funciónn que inicializa una array de manos, mediante un bucle.
     tMano mano;
     for(int i = 0; i < 4; i++)
     {
@@ -347,70 +317,211 @@ void inicializarManos(tMano manos[])
     }
 }
 int pedirJugadores()
-{
+{// Función que pide al usuario cuantos jugadores serán. Esta solo recibe respuestas correctas.
     int n;
-    cout<<"Cuantos jugadores serán"<<endl;
+    bool correcto = true;
+    while(correcto)
+    {
+        cout<<"_______Bienvenido a POKERFEICH______"<<endl;
+        cout<<"Cuantos jugadores serán"<<endl;
+        cin>>n;
+        if(1 < n & n < 5) correcto = false;
+    }
+
     return n;
 }
 void jugar(tMano manos[],int num_jug,int election)
-{
+{// Esta es la función que llama a todas las demás y ejecuta el juego.
     if(num_jug == 2)
     {
-        while(election == 1)
-        {
-            juegan2(manos,num_jug,election);
-        }
-}
+        juegan2(manos,num_jug,election);
+    }
+    else if(num_jug == 3)
+    {
+        juegan3(manos,num_jug,election);
+    }
+    else if (num_jug == 4)
+    {
+        juegan4(manos,num_jug,election);
+    }
+    cout<<"\nHasta la próxima !!!"<<endl;
 }
 void juegan2(tMano manos[],int num_jug,int election)
-{
-    while(election == 1)
+{// Función que juega cuando hay 2 jugadores. Hemos dividido el trabajo en función del nº de jugadores, así es más simple.
+    bool continuar = true;
+    while(continuar)
     {
+        cout<<"Nueva Partida!"<<endl;
+        tBaraja baraja;
+        inicializarBaraja(baraja);      // Inicializamos una baraja con la que jugaremos y también las manos de los jugadores.
+        tMano mano_jug_1 ; mano_jug_1.puntos=0;
+        tMano mano_jug_2 ; mano_jug_2.puntos=0;
+
+        repartirMano(baraja,mano_jug_1);ordenarMano(mano_jug_1);mostrarMano(mano_jug_1);calcularPuntosMano(mano_jug_1);
+        cout<<"_____Siguiente mano_____"<<endl;
+        repartirMano(baraja,mano_jug_2);ordenarMano(mano_jug_2);mostrarMano(mano_jug_2);calcularPuntosMano(mano_jug_2);
+        cout<<"Resultados:"<<endl;
+
+        manos[0] = mano_jug_1; manos[1] = mano_jug_2;
+        comprobarGanador(manos,num_jug);// Una vez repartidas las manos, ordenarlas y comprobar su combinación ganadora comprobamos
+                                        //quién ha ganado.
+        cout<<"Quieres seguir jugando??(1/0)";
+        cin>>election;
+        if(election == 0) continuar = false;
+    }
+}
+void juegan3(tMano manos[],int num_jug,int election)
+{// Esta función es análoga a la anterior aumentando en 1 el nº de jugadores y por ende, las manos.
+    bool continuar = true;
+    while(continuar)
+    {
+        cout<<"Nueva Partida!"<<endl;
         tBaraja baraja;
         inicializarBaraja(baraja);
 
-        tMano mano_jug_1 ;
-        tMano mano_jug_2 ;
+        tMano mano_jug_1 ;mano_jug_1.puntos=0;
+        tMano mano_jug_2 ;mano_jug_2.puntos=0;
+        tMano mano_jug_3;mano_jug_3.puntos=0;
 
-        repartirMano(baraja,mano_jug_1);
-        ordenarMano(mano_jug_1);
-        mostrarMano(mano_jug_1);
-        calcularPuntosMano(mano_jug_1);
+        repartirMano(baraja,mano_jug_1);ordenarMano(mano_jug_1);mostrarMano(mano_jug_1);calcularPuntosMano(mano_jug_1);
+        cout<<"_____Siguiente mano_____"<<endl;
+        repartirMano(baraja,mano_jug_2);ordenarMano(mano_jug_2);mostrarMano(mano_jug_2);calcularPuntosMano(mano_jug_2);
+        cout<<"_____Siguiente mano_____"<<endl;
+        repartirMano(baraja,mano_jug_3);ordenarMano(mano_jug_3);mostrarMano(mano_jug_3);calcularPuntosMano(mano_jug_3);
+        cout<<"Resultados:"<<endl;
 
-        repartirMano(baraja,mano_jug_2);
-        ordenarMano(mano_jug_2);
-        mostrarMano(mano_jug_2);
-        calcularPuntosMano(mano_jug_2);
-
-        comprobarGanador(mano_jug_1,mano_jug_2,num_jug);
+        manos[0] = mano_jug_1;manos[1] = mano_jug_2;manos[2] = mano_jug_3;
+        comprobarGanador(manos,num_jug);
 
         cout<<"Quieres seguir jugando??(1/0)";
         cin>>election;
+        if(election == 0) continuar = false;
     }
 }
-void comprobarGanador(tMano mano1,tMano mano2,int num_jug)
-{
+void juegan4(tMano manos[],int num_jug,int election)
+{// Lo mismo aqui, ahora con 4 jugadores.
+    bool continuar = true;
+    while(continuar)
+    {
+        cout<<"Nueva Partida!"<<endl;
+        tBaraja baraja;
+        inicializarBaraja(baraja);
+        tMano mano_jug_1 ;mano_jug_1.puntos=0;
+        tMano mano_jug_2 ;mano_jug_2.puntos=0;
+        tMano mano_jug_3;mano_jug_3.puntos=0;
+        tMano mano_jug_4;mano_jug_4.puntos=0;
 
+        repartirMano(baraja,mano_jug_1);ordenarMano(mano_jug_1);mostrarMano(mano_jug_1);calcularPuntosMano(mano_jug_1);
+        cout<<"_____Siguiente mano_____"<<endl;
+        repartirMano(baraja,mano_jug_2);ordenarMano(mano_jug_2);mostrarMano(mano_jug_2);calcularPuntosMano(mano_jug_2);
+        cout<<"_____Siguiente mano_____"<<endl;
+        repartirMano(baraja,mano_jug_3);ordenarMano(mano_jug_3);mostrarMano(mano_jug_3);calcularPuntosMano(mano_jug_3);
+        cout<<"_____Siguiente mano_____"<<endl;
+        repartirMano(baraja,mano_jug_4);ordenarMano(mano_jug_4);mostrarMano(mano_jug_4);calcularPuntosMano(mano_jug_4);
+        cout<<"Resultados:"<<endl;
+
+        manos[0] = mano_jug_1;manos[1] = mano_jug_2;manos[2] = mano_jug_3;manos[3] = mano_jug_4;
+        comprobarGanador(manos,num_jug);
+
+        cout<<"Quieres seguir jugando??(1/0)";
+        cin>>election;
+        if(election == 0) continuar = false;
+    }
+}
+
+void compiten2(tMano manos[], int num_jug)
+{// Para saber quién ha ganado o empatado, comprobamos los puntos de cada jugador, los cuales están almacenados en las distintas
+ // manos que se encuentran en la array manos.
+    if(manos[0].puntos < manos[1].puntos)
+    {
+        cout<<"\nGana el jugador 2!!!"<<endl;
+        cout<<"Con la siguienteb mano: "<<endl;cout<<"_______________________"<<endl;
+        mostrarMano(manos[1]);
+
+    }
+    else if(manos[0].puntos > manos[1].puntos)
+    {
+        cout<<"\nGana el jugador 1!!!!"<<endl;
+        cout<<"Con la siguienteb mano: "<<endl;cout<<"_______________________"<<endl;
+        mostrarMano(manos[0]);
+    }
+    else
+    {
+        cout<<"\nEmpate!!!"<<endl;
+    }
+    cout<<"puntos primer jugador: "<<manos[0].puntos<<endl;
+}
+
+void compiten3(tMano manos[],int num_jug)
+{// Análogo a la función anterior, pero con 3 jugadores, lo que incrementa el nº de condicionales.
+    if(manos[0].puntos < manos[1].puntos & manos[2].puntos < manos[1].puntos)
+    {
+        cout<<"\nGana el jugador 2!!!"<<endl;
+        cout<<"Con la siguienteb mano: "<<endl;cout<<"_______________________"<<endl;
+        mostrarMano(manos[1]);
+    }
+    else if(manos[0].puntos > manos[1].puntos & manos[0].puntos > manos[2].puntos)
+    {
+        //cout<<endl;
+        cout<<"\nGana el jugador 1!!!!"<<endl;
+        cout<<"Con la siguienteb mano: "<<endl;cout<<"_______________________"<<endl;
+        mostrarMano(manos[0]);
+    }
+    else if(manos[2].puntos > manos[1].puntos & manos[2].puntos > manos[0].puntos)
+    {
+        cout<<"\nGana el jugador 3!!!!"<<endl;
+        cout<<"Con la siguienteb mano: "<<endl;cout<<"_______________________"<<endl;
+        mostrarMano(manos[2]);
+    }
+    else
+    {
+        cout<<"\nEmpate!!!"<<endl;
+    }
+}
+void compiten4(tMano manos[],int num_jug)
+{// Análogo a la función anterior, pero con 4 jugadores, lo que incrementa el nº de condicionales.
+    if((manos[0].puntos < manos[1].puntos) & (manos[2].puntos < manos[1].puntos) & (manos[3].puntos < manos[1].puntos))
+    {
+        cout<<"\nGana el jugador 2!!!"<<endl;
+        cout<<"Con la siguienteb mano: "<<endl;cout<<"_______________________"<<endl;
+        mostrarMano(manos[1]);
+    }
+    else if((manos[0].puntos > manos[1].puntos) & (manos[0].puntos > manos[2].puntos) & (manos[0].puntos > manos[3].puntos))
+    {
+        cout<<"\nGana el jugador 1!!!!"<<endl;
+        cout<<"Con la siguienteb mano: "<<endl;cout<<"_______________________"<<endl;
+        mostrarMano(manos[0]);
+    }
+    else if((manos[2].puntos > manos[1].puntos)& (manos[2].puntos > manos[0].puntos) & (manos[2].puntos > manos[3].puntos))
+    {
+        cout<<"\nGana el jugador 3!!!!"<<endl;
+        cout<<"Con la siguienteb mano: "<<endl;cout<<"_______________________"<<endl;
+        mostrarMano(manos[2]);
+    }
+    else if((manos[3].puntos > manos[1].puntos) & (manos[3].puntos > manos[0].puntos) & (manos[3].puntos > manos[2].puntos))
+    {
+        cout<<"\nGana el jugador 4!!!!"<<endl;
+        cout<<"Con la siguienteb mano: "<<endl;cout<<"_______________________"<<endl;
+        mostrarMano(manos[3]);
+    }
+    else
+    {
+        cout<<"\nEmpate!!!"<<endl;
+    }
+}
+void comprobarGanador(tMano manos[],int num_jug)
+{// Aquí llamamos a la comprobación de los puntos, según el nº de jugadores llamamos a una función compiten diferente.
     if(num_jug == 2)
     {
-        if(mano1.puntos < mano2.puntos)
-        {
-            cout<<"\nGana el jugador 2!!!"<<endl;
-            cout<<"Con la siguienteb mano: "<<endl;cout<<"_______________________"<<endl;
-            mostrarMano(mano2);
-
-        }
-        else if(mano1.puntos > mano2.puntos)
-        {
-            //cout<<endl;
-            cout<<"\nGana el jugador 1!!!!"<<endl;
-            cout<<"Con la siguienteb mano: "<<endl;cout<<"_______________________"<<endl;
-            mostrarMano(mano1);
-        }
-        else
-        {
-            cout<<"\nEmpate!!!"<<endl;
-        }
+        compiten2(manos,num_jug);
+    }
+    else if(num_jug == 3)
+    {
+        compiten3(manos,num_jug);
+    }
+    else if(num_jug == 4)
+    {
+        compiten4(manos,num_jug);
     }
 }
 
