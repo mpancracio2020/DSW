@@ -4,8 +4,12 @@
 #include "p_struct_comprobaciones.h"
 #include "p_struct_carta.h"
 #include "p_struct_baraja.h"
+#include "p_struct_juego.h"
 #include <iostream>
 #include <array>
+
+// Este fichero implementa la funcionalidad del módulo comprobaciones, el cual comprueba todas las posibles combinaciones de
+// cartas y los posibles empates/ganadores/ganador.
 
 void comprobarEscaleraReal(tMano& mano)
 {// Función para comprobar que tenemos eslacera real.
@@ -181,3 +185,96 @@ void comprobarGanador(tMano manos[],int num_jug)
         compiten4(manos,num_jug);
     }
 }
+
+void compiten2(tMano manos[], int num_jug)
+{// Para saber quién ha ganado o empatado, comprobamos los puntos de cada jugador, los cuales están almacenados en las distintas
+ // manos que se encuentran en la array manos.
+    if(manos[0].puntos < manos[1].puntos)
+    {
+        cout<<"\nGana el jugador 2!!!"<<endl;
+        cout<<"Con la siguienteb mano: "<<endl;cout<<"_______________________"<<endl;
+        mostrarMano(manos[1]);
+
+    }
+    else if(manos[0].puntos > manos[1].puntos)
+    {
+        cout<<"\nGana el jugador 1!!!!"<<endl;
+        cout<<"Con la siguienteb mano: "<<endl;cout<<"_______________________"<<endl;
+        mostrarMano(manos[0]);
+    }
+    else
+    {
+        cout<<"\nEmpate!!!"<<endl;
+    }
+}
+
+void compiten3(tMano manos[],int num_jug)
+{// Análogo a la función anterior, pero con 3 jugadores, lo que incrementa el nº de condicionales.
+    if(manos[0].puntos < manos[1].puntos & manos[2].puntos < manos[1].puntos)
+    {
+        cout<<"\nGana el jugador 2!!!"<<endl;
+        cout<<"Con la siguienteb mano: "<<endl;cout<<"_______________________"<<endl;
+        mostrarMano(manos[1]);
+    }
+    else if(manos[0].puntos > manos[1].puntos & manos[0].puntos > manos[2].puntos)
+    {
+        cout<<"\nGana el jugador 1!!!!"<<endl;
+        cout<<"Con la siguienteb mano: "<<endl;cout<<"_______________________"<<endl;
+        mostrarMano(manos[0]);
+    }
+    else if(manos[2].puntos > manos[1].puntos & manos[2].puntos > manos[0].puntos)
+    {
+        cout<<"\nGana el jugador 3!!!!"<<endl;
+        cout<<"Con la siguienteb mano: "<<endl;cout<<"_______________________"<<endl;
+        mostrarMano(manos[2]);
+    }
+    else
+    {
+        cout<<"\nEmpate!!!"<<endl;
+    }
+}
+void compiten4(tMano manos[],int num_jug)
+{// Análogo a la función anterior, pero con 4 jugadores, lo que incrementa el nº de condicionales.
+    if((manos[0].puntos < manos[1].puntos) & (manos[2].puntos < manos[1].puntos) & (manos[3].puntos < manos[1].puntos))
+    {
+        cout<<"\nGana el jugador 2!!!"<<endl;
+        cout<<"Con la siguienteb mano: "<<endl;cout<<"_______________________"<<endl;
+        mostrarMano(manos[1]);
+    }
+    else if((manos[0].puntos > manos[1].puntos) & (manos[0].puntos > manos[2].puntos) & (manos[0].puntos > manos[3].puntos))
+    {
+        cout<<"\nGana el jugador 1!!!!"<<endl;
+        cout<<"Con la siguienteb mano: "<<endl;cout<<"_______________________"<<endl;
+        mostrarMano(manos[0]);
+    }
+    else if((manos[2].puntos > manos[1].puntos)& (manos[2].puntos > manos[0].puntos) & (manos[2].puntos > manos[3].puntos))
+    {
+        cout<<"\nGana el jugador 3!!!!"<<endl;
+        cout<<"Con la siguienteb mano: "<<endl;cout<<"_______________________"<<endl;
+        mostrarMano(manos[2]);
+    }
+    else if((manos[3].puntos > manos[1].puntos) & (manos[3].puntos > manos[0].puntos) & (manos[3].puntos > manos[2].puntos))
+    {
+        cout<<"\nGana el jugador 4!!!!"<<endl;
+        cout<<"Con la siguienteb mano: "<<endl;cout<<"_______________________"<<endl;
+        mostrarMano(manos[3]);
+    }
+    else
+    {
+        cout<<"\nEmpate!!!"<<endl;
+    }
+}
+
+void calcularPuntosMano(tMano& mano)
+{// LLamamos a todas las comprobaciones, en orden. De mayor puntuación a menor, asi ahorramos comprobar un Trío cuando ya tenemos un Full.
+    comprobarEscaleraReal(mano);
+    comprobarEscaleraColor(mano);
+    comprobarPoker(mano);
+    comprobarFull(mano);
+    comprobarColor(mano);
+    comprobarEscalera(mano);
+    comprobarTrio(mano);
+    comprobarPareja(mano);
+    comprobarCartaAlta(mano);
+}
+

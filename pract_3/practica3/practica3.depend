@@ -20,24 +20,30 @@
 	"poker_structs.h"
 	<iostream>
 
-1637434494 source:/home/marvin/Desktop/university/DSW/DSW/pract_3/practica3/main.cpp
+1637598804 source:/home/marvin/Desktop/university/DSW/DSW/pract_3/practica3/main.cpp
 	<iostream>
 	"poker_structs.h"
 	"p_structs.h"
+	"p_struct_juego.h"
 
-1636387634 /home/marvin/Desktop/university/DSW/DSW/pract_3/practica3/poker_structs.h
+1637597645 /home/marvin/Desktop/university/DSW/DSW/pract_3/practica3/poker_structs.h
 
-1637409065 /home/marvin/Desktop/university/DSW/DSW/pract_3/practica3/p_structs.h
+1637599862 /home/marvin/Desktop/university/DSW/DSW/pract_3/practica3/p_structs.h
 	"poker_structs.h"
 	<iostream>
 
-1637434456 source:/home/marvin/Desktop/university/DSW/DSW/pract_3/practica3/p_structs.cpp
+1637599827 source:/home/marvin/Desktop/university/DSW/DSW/pract_3/practica3/p_structs.cpp
 	"poker_structs.h"
 	"p_structs.h"
+	"p_struct_mano.h"
+	"p_struct_comprobaciones.h"
+	"p_struct_carta.h"
+	"p_struct_baraja.h"
+	"p_struct_juego.h"
 	<iostream>
 	<array>
 
-1636386645 source:/home/marvin/Desktop/university/DSW/DSW/pract_3/practica3/poker_structs.cpp
+1637597645 source:/home/marvin/Desktop/university/DSW/DSW/pract_3/practica3/poker_structs.cpp
 	"poker_structs.h"
 	<iostream>
 
@@ -105,4 +111,69 @@
 1637585911 /home/alumnos/marvin/DSW/pract_3/practica3/p_struct_baraja.h
 
 1637586785 /home/alumnos/marvin/DSW/pract_3/practica3/p_struct_carta.h
+
+1637599718 source:/home/marvin/Desktop/university/DSW/DSW/pract_3/practica3/p_struct_baraja.cpp
+	"poker_structs.h"
+	"p_struct_mano.h"
+	"p_structs.h"
+	"p_struct_comprobaciones.h"
+	"p_struct_carta.h"
+	"p_struct_baraja.h"
+	"p_struct_juego.h"
+	<iostream>
+	<array>
+
+1637599140 /home/marvin/Desktop/university/DSW/DSW/pract_3/practica3/p_struct_mano.h
+
+1637599860 /home/marvin/Desktop/university/DSW/DSW/pract_3/practica3/p_struct_comprobaciones.h
+
+1637599039 /home/marvin/Desktop/university/DSW/DSW/pract_3/practica3/p_struct_carta.h
+
+1637599521 /home/marvin/Desktop/university/DSW/DSW/pract_3/practica3/p_struct_baraja.h
+
+1637599838 source:/home/marvin/Desktop/university/DSW/DSW/pract_3/practica3/p_struct_comprobaciones.cpp
+	"poker_structs.h"
+	"p_struct_mano.h"
+	"p_structs.h"
+	"p_struct_comprobaciones.h"
+	"p_struct_carta.h"
+	"p_struct_baraja.h"
+	"p_struct_juego.h"
+	<iostream>
+	<array>
+
+1637599598 source:/home/marvin/Desktop/university/DSW/DSW/pract_3/practica3/p_struct_mano.cpp
+	"poker_structs.h"
+	"p_struct_mano.h"
+	"p_structs.h"
+	"p_struct_comprobaciones.h"
+	"p_struct_carta.h"
+	"p_struct_baraja.h"
+	"p_struct_juego.h"
+	<iostream>
+	<array>
+
+1637598587 /home/marvin/Desktop/university/DSW/DSW/pract_3/practica3/p_struct_juego.h
+
+1637599907 source:/home/marvin/Desktop/university/DSW/DSW/pract_3/practica3/p_struct_juego.cpp
+	"poker_structs.h"
+	"p_struct_mano.h"
+	"p_structs.h"
+	"p_struct_comprobaciones.h"
+	"p_struct_carta.h"
+	"p_struct_baraja.h"
+	"p_struct_juego.h"
+	<iostream>
+	<array>
+
+1637599016 source:/home/marvin/Desktop/university/DSW/DSW/pract_3/practica3/p_struct_carta.cpp
+	"poker_structs.h"
+	"p_struct_mano.h"
+	"p_structs.h"
+	"p_struct_comprobaciones.h"
+	"p_struct_carta.h"
+	"p_struct_baraja.h"
+	"p_struct_juego.h"
+	<iostream>
+	<array>
 

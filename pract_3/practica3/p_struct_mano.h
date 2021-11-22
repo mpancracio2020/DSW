@@ -1,6 +1,8 @@
 #ifndef P_STRUCT_MANO_H_INCLUDED
 #define P_STRUCT_MANO_H_INCLUDED
 
+//Este fichero contiene la información del módulo mano.
+
 void repartirMano(tBaraja& baraja,tMano& mano);
 void ordenarMano(tMano& mano);//Función para ordenar las cartas de una mano, de forma ascencendente en función de su valor.
 void mostrarMano(tMano& mano);//Función que simplemente muestra las cartas que contiene una mano.

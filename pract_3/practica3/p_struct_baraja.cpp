@@ -4,8 +4,12 @@
 #include "p_struct_comprobaciones.h"
 #include "p_struct_carta.h"
 #include "p_struct_baraja.h"
+#include "p_struct_juego.h"
 #include <iostream>
 #include <array>
+
+// Este fichero implementa la funcionalidad del módulo baraja.
+
 void mostrarBaraja(tBaraja& baraja)
 {   //Función para mostrar las cartas que contiene la baraja.
     int index = 0;

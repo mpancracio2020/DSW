@@ -4,8 +4,11 @@
 #include "p_struct_comprobaciones.h"
 #include "p_struct_carta.h"
 #include "p_struct_baraja.h"
+#include "p_struct_juego.h"
 #include <iostream>
 #include <array>
+
+//En este fichero esta implementada la funcionalidad del módulo carta.
 
 void sacarCarta(tBaraja& baraja,tCarta& carta)
 {   // Función para sacar una carta al azar de la baraja y retirarla de la misma.

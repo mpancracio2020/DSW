@@ -4,8 +4,12 @@
 #include "p_struct_comprobaciones.h"
 #include "p_struct_carta.h"
 #include "p_struct_baraja.h"
+#include "p_struct_juego.h"
 #include <iostream>
 #include <array>
+
+// Este fichero implementa la funcionalidad del módulo mano.
+
 void repartirMano(tBaraja& baraja,tMano& mano)
 {   //Función para repartir una mano de cartas a cada jugador, teniendo en cuenta las cartas ya dadas.
 
@@ -38,7 +42,7 @@ void ordenarMano(tMano& mano)
 }
 
 void mostrarMano(tMano& mano)
-{
+{// Muestra las cartas de un mano, recorriendo la array de cartas que contiene la estructura mano.
     for(int i = 0; i < 5; i++)
     {
         cout<<"______________"<<endl;
