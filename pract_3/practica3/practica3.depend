@@ -41,24 +41,68 @@
 	"poker_structs.h"
 	<iostream>
 
-1637068307 source:/home/alumnos/marvin/DSW/pract_3/practica3/main.cpp
+1637575795 source:/home/alumnos/marvin/DSW/pract_3/practica3/main.cpp
 	<iostream>
 	"poker_structs.h"
 	"p_structs.h"
 
 1637060863 /home/alumnos/marvin/DSW/pract_3/practica3/poker_structs.h
 
-1637065710 /home/alumnos/marvin/DSW/pract_3/practica3/p_structs.h
+1637585979 /home/alumnos/marvin/DSW/pract_3/practica3/p_structs.h
 	"poker_structs.h"
 	<iostream>
 
-1637067335 source:/home/alumnos/marvin/DSW/pract_3/practica3/p_structs.cpp
+1637587193 source:/home/alumnos/marvin/DSW/pract_3/practica3/p_structs.cpp
 	"poker_structs.h"
 	"p_structs.h"
+	"p_struct_mano.h"
+	"p_struct_comprobaciones.h"
+	"p_struct_carta.h"
+	"p_struct_baraja.h"
 	<iostream>
 	<array>
 
 1637060863 source:/home/alumnos/marvin/DSW/pract_3/practica3/poker_structs.cpp
 	"poker_structs.h"
 	<iostream>
+
+1637586750 source:/home/alumnos/marvin/DSW/pract_3/practica3/p_struct_mano.cpp
+	"poker_structs.h"
+	"p_struct_mano.h"
+	"p_structs.h"
+	"p_struct_comprobaciones.h"
+	"p_struct_carta.h"
+	"p_struct_baraja.h"
+	<iostream>
+	<array>
+
+1637584102 /home/alumnos/marvin/DSW/pract_3/practica3/p_struct_mano.h
+
+1637586655 source:/home/alumnos/marvin/DSW/pract_3/practica3/p_struct_comprobaciones.cpp
+	"poker_structs.h"
+	"p_struct_mano.h"
+	"p_structs.h"
+	"p_struct_comprobaciones.h"
+	"p_struct_carta.h"
+	"p_struct_baraja.h"
+	<iostream>
+	<array>
+
+1637584199 /home/alumnos/marvin/DSW/pract_3/practica3/p_struct_comprobaciones.h
+
+1637586617 source:/home/alumnos/marvin/DSW/pract_3/practica3/p_struct_baraja.cpp
+	"poker_structs.h"
+	"p_struct_mano.h"
+	"p_structs.h"
+	"p_struct_comprobaciones.h"
+	"p_struct_carta.h"
+	"p_struct_baraja.h"
+	<iostream>
+	<array>
+
+1637585979 /home/alumnos/marvin/DSW/pract_3/practica3/p_struct.carta.h
+
+1637585911 /home/alumnos/marvin/DSW/pract_3/practica3/p_struct_baraja.h
+
+1637586785 /home/alumnos/marvin/DSW/pract_3/practica3/p_struct_carta.h
 
