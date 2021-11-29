@@ -1,0 +1,43 @@
+# depslib dependency file v1.0
+1607264622 source:/home/alumnos/marvin/DSW/pract_4/parking/identificador.cpp
+	"identificador.h"
+
+1638189763 /home/alumnos/marvin/DSW/pract_4/parking/identificador.h
+	"tvehiculo.h"
+	"parking.h"
+	"planta.h"
+	"bloque.h"
+
+1574048806 /home/alumnos/marvin/DSW/pract_4/parking/tvehiculo.h
+
+1638193330 /home/alumnos/marvin/DSW/pract_4/parking/parking.h
+	"tvehiculo.h"
+	"planta.h"
+	"array"
+
+1638191706 /home/alumnos/marvin/DSW/pract_4/parking/planta.h
+	"tvehiculo.h"
+	"bloque.h"
+
+1574026162 /home/alumnos/marvin/DSW/pract_4/parking/bloque.h
+
+1638189907 source:/home/alumnos/marvin/DSW/pract_4/parking/bloque.cpp
+	"bloque.h"
+
+1638192549 source:/home/alumnos/marvin/DSW/pract_4/parking/main.cpp
+	<iostream>
+	"tvehiculo.h"
+	"identificador.h"
+	"planta.h"
+	"parking.h"
+	"bloque.h"
+
+1638193484 source:/home/alumnos/marvin/DSW/pract_4/parking/parking.cpp
+	"parking.h"
+
+1638189900 source:/home/alumnos/marvin/DSW/pract_4/parking/tvehiculo.cpp
+	"tvehiculo.h"
+
+1638192691 source:/home/alumnos/marvin/DSW/pract_4/parking/planta.cpp
+	"planta.h"
+
