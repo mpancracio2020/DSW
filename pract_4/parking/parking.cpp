@@ -21,3 +21,11 @@ int Parking :: num_bloques_libres(void) const
     }
     return n;
 }
+
+bool Parking ::estacionar_vehiculo( const tVehiculo vehiculo )
+{
+
+
+
+}
+

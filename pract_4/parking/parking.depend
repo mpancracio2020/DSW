@@ -21,8 +21,9 @@
 
 1574026162 /home/alumnos/marvin/DSW/pract_4/parking/bloque.h
 
-1638189907 source:/home/alumnos/marvin/DSW/pract_4/parking/bloque.cpp
+1638365173 source:/home/alumnos/marvin/DSW/pract_4/parking/bloque.cpp
 	"bloque.h"
+	<iostream>
 
 1638192549 source:/home/alumnos/marvin/DSW/pract_4/parking/main.cpp
 	<iostream>
@@ -38,6 +39,6 @@
 1638189900 source:/home/alumnos/marvin/DSW/pract_4/parking/tvehiculo.cpp
 	"tvehiculo.h"
 
-1638192691 source:/home/alumnos/marvin/DSW/pract_4/parking/planta.cpp
+1638193560 source:/home/alumnos/marvin/DSW/pract_4/parking/planta.cpp
 	"planta.h"
 

@@ -17,7 +17,7 @@ int main()
 
     cout << "Bloques libres: " << pk1.num_bloques_libres() << endl << endl;
 
-    /*Identificador::resetear_contador();
+    Identificador::resetear_contador();
     for (int i=0; i<10; i++)
     {
         cout << pk1.estacionar_vehiculo(AUTOBUS);
@@ -32,7 +32,7 @@ int main()
 
     cout << "Bloques libres: " << pk1.num_bloques_libres() << endl << endl;
 
-    char ident1[]  = {'F', '1', '2', '9'};
+    /*char ident1[]  = {'F', '1', '2', '9'};
     cout << pk1.retirar_vehiculo(ident1);
     cout << pk1.retirar_vehiculo(ident1);
 
