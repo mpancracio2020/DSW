@@ -33,11 +33,14 @@
 			<Add option="-fexceptions" />
 		</Compiler>
 		<Unit filename="main.cpp" />
-		<Unit filename="p_struct.carta.h" />
 		<Unit filename="p_struct_baraja.cpp" />
 		<Unit filename="p_struct_baraja.h" />
+		<Unit filename="p_struct_carta.cpp" />
+		<Unit filename="p_struct_carta.h" />
 		<Unit filename="p_struct_comprobaciones.cpp" />
 		<Unit filename="p_struct_comprobaciones.h" />
+		<Unit filename="p_struct_juego.cpp" />
+		<Unit filename="p_struct_juego.h" />
 		<Unit filename="p_struct_mano.cpp" />
 		<Unit filename="p_struct_mano.h" />
 		<Unit filename="p_structs.cpp" />

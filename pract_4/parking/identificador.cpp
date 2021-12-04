@@ -3,7 +3,7 @@
 int Identificador::contador;
 
 void Identificador::preparar_valor(tVehiculo vehiculo)
-{
+{// Método para determinar el tipo de id según el tipo de vehículo.
     switch (vehiculo)
     {
         case AUTOBUS:
@@ -29,7 +29,7 @@ void Identificador::preparar_valor(tVehiculo vehiculo)
 
 
 void Identificador::generar_valor(char valor[]) const
-{
+{// Método para generar el valor id de un vehículo.
     int numero = digitos_ident;
     valor[0] = tipo_vehic_ident;
 
@@ -39,4 +39,10 @@ void Identificador::generar_valor(char valor[]) const
         numero /= 10;
     }
     return;
+}
+void Identificador :: setup()
+{
+    contador = VALOR_MIN;
+    digitos_ident = contador;
+
 }

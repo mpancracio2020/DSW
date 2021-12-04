@@ -14,6 +14,7 @@ class Identificador
     void preparar_valor(const tVehiculo vehiculo);
     void generar_valor(char valor[]) const;
     static void resetear_contador() { contador = VALOR_MIN; }
+    void setup();
 
   private:
 

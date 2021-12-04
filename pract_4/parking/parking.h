@@ -4,6 +4,7 @@
 #include "tvehiculo.h"
 #include "planta.h"
 #include "array"
+#include "identificador.h"
 
 class Parking
 {

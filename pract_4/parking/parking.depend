@@ -42,3 +42,49 @@
 1638193560 source:/home/alumnos/marvin/DSW/pract_4/parking/planta.cpp
 	"planta.h"
 
+1638637576 source:/home/marvin/Desktop/university/DSW/DSW/pract_4/parking/bloque.cpp
+	"bloque.h"
+	<iostream>
+
+1638637576 /home/marvin/Desktop/university/DSW/DSW/pract_4/parking/bloque.h
+
+1638641358 source:/home/marvin/Desktop/university/DSW/DSW/pract_4/parking/identificador.cpp
+	"identificador.h"
+
+1638641286 /home/marvin/Desktop/university/DSW/DSW/pract_4/parking/identificador.h
+	"tvehiculo.h"
+	"parking.h"
+	"planta.h"
+	"bloque.h"
+
+1638637576 /home/marvin/Desktop/university/DSW/DSW/pract_4/parking/tvehiculo.h
+
+1638637877 /home/marvin/Desktop/university/DSW/DSW/pract_4/parking/parking.h
+	"tvehiculo.h"
+	"planta.h"
+	"array"
+	"identificador.h"
+
+1638637576 /home/marvin/Desktop/university/DSW/DSW/pract_4/parking/planta.h
+	"tvehiculo.h"
+	"bloque.h"
+
+1638639322 source:/home/marvin/Desktop/university/DSW/DSW/pract_4/parking/main.cpp
+	<iostream>
+	"tvehiculo.h"
+	"identificador.h"
+	"planta.h"
+	"parking.h"
+	"bloque.h"
+
+1638641520 source:/home/marvin/Desktop/university/DSW/DSW/pract_4/parking/parking.cpp
+	"parking.h"
+	"identificador.h"
+	<iostream>
+
+1638641668 source:/home/marvin/Desktop/university/DSW/DSW/pract_4/parking/planta.cpp
+	"planta.h"
+
+1638637576 source:/home/marvin/Desktop/university/DSW/DSW/pract_4/parking/tvehiculo.cpp
+	"tvehiculo.h"
+

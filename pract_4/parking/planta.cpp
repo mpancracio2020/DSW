@@ -18,3 +18,8 @@ int Planta :: num_bloques_libres(void) const
 {
     return bloques_libres;
 }
+/*bool Planta :: estacionar_vehiculo()
+{
+
+
+}*/

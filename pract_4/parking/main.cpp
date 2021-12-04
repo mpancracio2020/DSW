@@ -16,8 +16,10 @@ int main()
     Parking pk1(plantas, NUM_PLANTAS_PK1); // Creamos un objeto Parking, con sus plantas.
 
     cout << "Bloques libres: " << pk1.num_bloques_libres() << endl << endl;
+    Identificador id;
+    cout << pk1.estacionar_vehiculo(AUTOBUS);
 
-    Identificador::resetear_contador();
+    /*Identificador::resetear_contador();
     for (int i=0; i<10; i++)
     {
         cout << pk1.estacionar_vehiculo(AUTOBUS);
