@@ -4,7 +4,8 @@
 using namespace std;
 
 Parking :: Parking(const Planta nuevas_plantas[], int numero_plantas)
-{
+{// Constructor de la clase parking.
+
     num_plantas = numero_plantas;
 
     for(int i = 0; i < numero_plantas; i++)
@@ -26,24 +27,32 @@ int Parking :: num_bloques_libres(void) const
 }
 
 bool Parking ::estacionar_vehiculo( const tVehiculo vehiculo )
-{
-    char id_valor[4];
-    bool estacionado = false;
+{// Este método estaciona un vehiculo, y devuelve 1 si ha sido estacionado o 0 en caso contrario.
+    bool aparcado = false;
 
-    Identificador id;
-    id.setup();
-    /*id.contador = id.VALOR_MIN;
-    id.digitos_ident = id.contador;*/
+    plantas[0].estacionar_vehiculo(vehiculo); // Llamamos al método estacionar de la clase planta.
 
-    id.preparar_valor(vehiculo);
-    id.generar_valor(id_valor);
+    if(aparcado == true) return 1;
 
-    /*for(int i = 0; i < 4; i++)
-    {
-        cout << id_valor[i] << endl;
+    return aparcado;
 
-    }*/
-//    id.contador ++;
-    return estacionado;
+
+
 }
 
+void Parking::visualizar_estado(void) const
+{// Método para visualizar el estado de todas las plantas de un parking.
+
+    cout<<endl;
+    for(int i = 0; i < num_plantas; i++)
+    {
+        cout<<"Planta "<< i<<endl;
+        plantas[i].visualizar_estado();
+    }
+}
+bool Parking :: retirar_vehiculo( const char valor_id[] )
+{
+    bool retirado = false;
+
+    return retirado;
+}

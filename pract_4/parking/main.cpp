@@ -16,8 +16,31 @@ int main()
     Parking pk1(plantas, NUM_PLANTAS_PK1); // Creamos un objeto Parking, con sus plantas.
 
     cout << "Bloques libres: " << pk1.num_bloques_libres() << endl << endl;
+    // para que funcione el id es necesario inicializar un objeto ID.
     Identificador id;
-    cout << pk1.estacionar_vehiculo(AUTOBUS);
+
+    id.setup();// inicializamos los atributod, SOLO SE HACE 1 VEZ!!!
+    /*for(int i = 0; i < 100; i++)
+    {   id.preparar_valor(AUTOBUS);
+        id.generar_valor();
+        id.mostrar_id();
+
+        id.preparar_valor(MOTOCICLETA);
+        id.generar_valor();
+        id.mostrar_id();
+    }*/
+    //___________________________________________________
+
+
+
+    //cout << pk1.estacionar_vehiculo(AUTOBUS);
+    cout << pk1.estacionar_vehiculo(MOTOCICLETA);
+    pk1.visualizar_estado();
+
+    char a[4] = {'M','1','0','0'};
+
+    /*cout << pk1.retirar_vehiculo(a);
+    pk1.visualizar_estado();
 
     /*Identificador::resetear_contador();
     for (int i=0; i<10; i++)
@@ -28,31 +51,22 @@ int main()
         cout << pk1.estacionar_vehiculo(MOTOCICLETA);
     }
     cout << endl;
-
     pk1.visualizar_estado();
-
-
     cout << "Bloques libres: " << pk1.num_bloques_libres() << endl << endl;
-
     /*char ident1[]  = {'F', '1', '2', '9'};
     cout << pk1.retirar_vehiculo(ident1);
     cout << pk1.retirar_vehiculo(ident1);
-
     char ident2[]  = {'A', '1', '3', '2'};
     cout << pk1.retirar_vehiculo(ident2);
     cout << endl;
-
     pk1.visualizar_estado();
     cout << "Bloques libres: " << pk1.num_bloques_libres() << endl << endl;
-
     cout << pk1.estacionar_vehiculo(AUTOBUS);
     cout << pk1.estacionar_vehiculo(FURGONETA);
     cout << pk1.estacionar_vehiculo(TURISMO);
     cout << pk1.estacionar_vehiculo(MOTOCICLETA);
     cout << endl;
-
     pk1.visualizar_estado();
     cout << "Bloques libres: " << pk1.num_bloques_libres() << endl << endl;
-
     return 0;*/
 }
