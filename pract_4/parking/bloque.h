@@ -1,7 +1,7 @@
 #ifndef BLOQUE_H_INCLUDED
 #define BLOQUE_H_INCLUDED
 #include "identificador.h"
-#include "planta.h"
+//#include "planta.h"
 
 class Bloque
 {
@@ -11,9 +11,9 @@ class Bloque
     void ocupar_bloque(const char nuevo_valor_id[]); // Método para ocupar un bloque.
     void desocupar_bloque(void);
     void obtener_valor(char valor[]) const;
-    bool esta_ocupado(void) const {return ocupado;}
+    bool esta_ocupado(void) const {return ocupado;};
     void mostrar_valor(void)const;
-//    bool buscar_sitio(Identificador ident, Planta planta);
+    //bool buscar_sitio(Identificador ident, Planta planta);
 
   private:
 

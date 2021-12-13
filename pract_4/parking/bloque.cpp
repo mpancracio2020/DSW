@@ -3,8 +3,7 @@
 #include <string.h>
 using namespace std;
 
-
-Bloque :: Bloque(void)
+Bloque::Bloque(void)
 {
     ocupado = false; // inicializamos el atributo del objeto.
 }

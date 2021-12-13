@@ -14,8 +14,8 @@ class Planta
     bool retirar_vehiculo(const char valor_id[] );
     int num_bloques_libres(void) const;
     void visualizar_estado(void) const;
-    int get_filas(void) const {return filas;}
-    int get_columnas(void) const {return columnas;}
+    int get_filas(void) const {return filas;};
+    int get_columnas(void) const {return columnas;};
 
   private:
 

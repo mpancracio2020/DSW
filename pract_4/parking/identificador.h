@@ -2,9 +2,6 @@
 #define IDENTIFICADOR_H_INCLUDED
 
 #include "tvehiculo.h"
-#include "parking.h"
-#include "planta.h"
-#include "bloque.h"
 
 
 class Identificador
@@ -13,7 +10,7 @@ class Identificador
 
     void preparar_valor(const tVehiculo vehiculo);// Método para determinar el tipo de letra según el tipo de vehículo.
     void generar_valor() ;
-    static void resetear_contador() { contador = VALOR_MIN; }
+    static void resetear_contador() { contador = VALOR_MIN; };
     void setup();
     void mostrar_id();
     char arr_id[4]; // array para almacenar el valor de la id.
