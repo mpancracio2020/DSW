@@ -16,7 +16,6 @@ class Parking
     void visualizar_estado(void) const;
     int num_bloques_libres(void) const;
 
-
   private:
     int num_plantas;
     static const int MAX_PLANTAS = 4;

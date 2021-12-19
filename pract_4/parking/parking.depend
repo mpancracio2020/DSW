@@ -49,51 +49,46 @@
 1638193560 source:/home/alumnos/marvin/DSW/pract_4/parking/planta.cpp
 	"planta.h"
 
-1638900098 source:/home/marvin/Desktop/university/DSW/DSW/pract_4/parking/bloque.cpp
+1639851579 source:/home/marvin/Desktop/university/DSW/DSW/pract_4/parking/bloque.cpp
 	"bloque.h"
 	<iostream>
 	<string.h>
 
-1638902608 /home/marvin/Desktop/university/DSW/DSW/pract_4/parking/bloque.h
+1639851566 /home/marvin/Desktop/university/DSW/DSW/pract_4/parking/bloque.h
 	"identificador.h"
-	"planta.h"
 
-1638876685 source:/home/marvin/Desktop/university/DSW/DSW/pract_4/parking/identificador.cpp
+1639851655 source:/home/marvin/Desktop/university/DSW/DSW/pract_4/parking/identificador.cpp
 	"identificador.h"
 	<iostream>
 
-1638878364 /home/marvin/Desktop/university/DSW/DSW/pract_4/parking/identificador.h
+1639847180 /home/marvin/Desktop/university/DSW/DSW/pract_4/parking/identificador.h
 	"tvehiculo.h"
-	"parking.h"
-	"planta.h"
-	"bloque.h"
 
 1638637576 /home/marvin/Desktop/university/DSW/DSW/pract_4/parking/tvehiculo.h
 
-1638785080 /home/marvin/Desktop/university/DSW/DSW/pract_4/parking/parking.h
+1639937512 /home/marvin/Desktop/university/DSW/DSW/pract_4/parking/parking.h
 	"tvehiculo.h"
 	"planta.h"
 	"array"
 	"identificador.h"
 
-1638789320 /home/marvin/Desktop/university/DSW/DSW/pract_4/parking/planta.h
+1639937516 /home/marvin/Desktop/university/DSW/DSW/pract_4/parking/planta.h
 	"tvehiculo.h"
 	"bloque.h"
 
-1638902559 source:/home/marvin/Desktop/university/DSW/DSW/pract_4/parking/main.cpp
+1639852344 source:/home/marvin/Desktop/university/DSW/DSW/pract_4/parking/main.cpp
 	<iostream>
 	"tvehiculo.h"
 	"identificador.h"
 	"planta.h"
 	"parking.h"
-	"bloque.h"
 
-1638903427 source:/home/marvin/Desktop/university/DSW/DSW/pract_4/parking/parking.cpp
+1639937503 source:/home/marvin/Desktop/university/DSW/DSW/pract_4/parking/parking.cpp
 	"parking.h"
 	"identificador.h"
 	<iostream>
 
-1638900865 source:/home/marvin/Desktop/university/DSW/DSW/pract_4/parking/planta.cpp
+1639937479 source:/home/marvin/Desktop/university/DSW/DSW/pract_4/parking/planta.cpp
 	"planta.h"
 	<iostream>
 	"array"

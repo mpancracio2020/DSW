@@ -13,7 +13,6 @@ class Bloque
     void obtener_valor(char valor[]) const;
     bool esta_ocupado(void) const {return ocupado;};
     void mostrar_valor(void)const;
-    //bool buscar_sitio(Identificador ident, Planta planta);
 
   private:
 

@@ -45,13 +45,11 @@ void Identificador::generar_valor()
         arr_id[NUM_CIFRAS_IDENT - i] = (numero % 10) + '0';
         numero /= 10;
     }
-
 }
 void Identificador :: setup()
-{
+{// Inicializamos atributos de la clase.
     contador = VALOR_MIN;
     digitos_ident = contador;
-
 }
 void Identificador::mostrar_id()
 {// Método para mostrar el id de un vehículo.
@@ -61,6 +59,9 @@ void Identificador::mostrar_id()
         cout<<arr_id[i];
     }
     cout<<endl;
-
-    //cout<<<<endl;
+}
+void Identificador::aum_digitos_ident(void)
+{
+    //digitos_ident++;
+    cout<<"digitos: "<<digitos_ident<<endl;
 }

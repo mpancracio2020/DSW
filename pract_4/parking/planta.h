@@ -16,13 +16,13 @@ class Planta
     void visualizar_estado(void) const;
     int get_filas(void) const {return filas;};
     int get_columnas(void) const {return columnas;};
+    int get_num_columnas(tVehiculo vehiculo);
 
   private:
 
     int filas;
     int columnas;
     int bloques_libres;
-
     static const int MAX_FILAS = 6;
     static const int MAX_COLUMNAS = 10;
     Bloque bloques[MAX_FILAS][MAX_COLUMNAS];

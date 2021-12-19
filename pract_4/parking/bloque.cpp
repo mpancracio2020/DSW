@@ -4,7 +4,7 @@
 using namespace std;
 
 Bloque::Bloque(void)
-{
+{// Constructor de la clase.
     ocupado = false; // inicializamos el atributo del objeto.
 }
 void Bloque :: ocupar_bloque(const char nuevo_valor_id[])
@@ -13,30 +13,15 @@ void Bloque :: ocupar_bloque(const char nuevo_valor_id[])
     if (ocupado == false)
     {// Primero comprobamos que el bloque esté libre, en ese caso, procedemos a ocuparlo y a rellenar la id del bloque.
 
-        strcpy(valor_id, nuevo_valor_id); // cambiamos el valor por el del nuevo vehiculo que lo ocupa..
+        //strcpy(valor_id, nuevo_valor_id); // cambiamos el valor por el del nuevo vehiculo que lo ocupa..
+        valor_id[0] = nuevo_valor_id[0];
+        valor_id[1] = nuevo_valor_id[1];
+        valor_id[2] = nuevo_valor_id[2];
+        valor_id[3] = nuevo_valor_id[3];
         ocupado = true; // cambiamos el valor del booleano para saber que está siendo ocupado ese bloque.
     }
 }
 
-/*bool Bloque :: buscar_sitio(Identificador ident, Planta planta)
-{
-    int espacio = ident.tam_bloques;
-    int entra = 0;
-    bool hay_sitio = false
-
-    for(int i = 0; i < ident.VALOR_MAX;i++)
-    {
-        for(int j = 0;) j < ident.VALOR_MAX;j++)
-        {
-            if(entra == espacio) {hay_espacio = true;}
-            else if (planta.bloques[i][j].ocupado ==false){ entra ++;}
-        }
-    }
-
-    return hay_sitio;
-
-}
-*/
 void Bloque :: desocupar_bloque(void)
 {// Método para desocupar un bloque.
     char libre[4] = {'X','X','X','X'}; // array para remplazar.
@@ -58,5 +43,9 @@ void Bloque :: obtener_valor(char valor[]) const
 
 void Bloque::mostrar_valor(void)const
 {// Método para mostrar valor_id del objeto bloque.
-    cout <<valor_id;
+    for(int i = 0; i < 4; i++)
+    {
+        cout<<valor_id[i];
+    }
 }
+

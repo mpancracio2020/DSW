@@ -15,10 +15,11 @@ class Identificador
     void mostrar_id();
     char arr_id[4]; // array para almacenar el valor de la id.
     int tam_bloques;
+    void aum_digitos_ident(void);
 
   private:
 
-    char tipo_vehic_ident;
+    char tipo_vehic_ident = 100;
     int digitos_ident;
     static int contador;
 

@@ -28,16 +28,15 @@ int Parking :: num_bloques_libres(void) const
 
 bool Parking ::estacionar_vehiculo( const tVehiculo vehiculo )
 {// Este método estaciona un vehiculo, y devuelve 1 si ha sido estacionado o 0 en caso contrario.
-    bool aparcado = false;
-
-    plantas[0].estacionar_vehiculo(vehiculo); // Llamamos al método estacionar de la clase planta.
-
-    if(aparcado == true) return 1;
-
+    bool aparcado = 0; // Llamamos al método estacionar de la clase planta.
+    for(int i = 0; i < num_plantas; i++)
+    {
+        if(aparcado == 0)
+        {
+            aparcado = plantas[i].estacionar_vehiculo(vehiculo);
+        }
+    }
     return aparcado;
-
-
-
 }
 
 void Parking::visualizar_estado(void) const
@@ -54,5 +53,14 @@ bool Parking :: retirar_vehiculo( const char valor_id[] )
 {
     bool retirado = false;
 
+    for(int i = 0; i < num_plantas; i++)
+    {
+        if(retirado == 0)
+        {
+            retirado = plantas[i].retirar_vehiculo(valor_id);
+        }
+    }
+
     return retirado;
 }
+
